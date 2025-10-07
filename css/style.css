@@ -67,38 +67,36 @@ body {
 
 .bg-star {
     position: absolute;
-    width: 621.4px;
-    height: 621.4px;
-    left: 297px;
-    top: -283px;
-    transform: rotate(32.16deg);
-    opacity: 0.3;
-    background-image: url('https://raw.githubusercontent.com/WebProgramming-2025-2/Front/mogle/별.png');
-    background-size: cover;
+    width: 783px;
+    height: 574px;
+    left: 757px;
+    top: -90px;
+    transform: rotate(-15deg);
+    opacity: 1;
+    background-image: url("../images/배경별.png");
+    background-size: contain;
 }
 
 .bg-clover {
     position: absolute;
-    width: 752.8px;
-    height: 752.8px;
-    left: -339px;
-    top: 134px;
-    transform: rotate(-33.3deg);
-    opacity: 0.3;
-    background-image: url('https://raw.githubusercontent.com/WebProgramming-2025-2/Front/mogle/클로버.png');
-    background-size: cover;
+    width: 704px;
+    height: 698px;
+    left: 0px;
+    top: 0px;
+    opacity: 1;
+    background-image: url("../images/배경클로버.png");
+    background-size: contain;
 }
 
 .bg-sparkle {
     position: absolute;
-    width: 545.39px;
-    height: 535.39px;
-    left: 733px;
-    top: 320px;
-    transform: rotate(-33.38deg);
-    opacity: 0.3;
-    background-image: url('https://raw.githubusercontent.com/WebProgramming-2025-2/Front/mogle/반짝별.png');
-    background-size: cover;
+    width: 547px;
+    height: 512px;
+    left: 990px;
+    top: 193px;
+    opacity: 1;
+    background-image: url("../images/배경반짝별.png");
+    background-size: contain;
 }
 
 /* ==================== 텍스트 스타일 ==================== */
