@@ -1,0 +1,85 @@
+/* 폰트 설정은 그대로 유지 */
+@font-face {
+    font-family: 'NoonnuBasicGothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noon-2410@1.0/NoonnuBasicGothicRegular.woff2') format('woff2');
+    font-weight: normal;
+    font-display: swap;
+}
+
+
+/* 폰트 설정*/
+a {color: black; text-decoration: none;}
+.green{-webkit-text-fill-color: #CEF5F3;}
+.pink{-webkit-text-fill-color: #FFD9F1;}
+.big-title{font-family: "NoonnuBasicGothic", sans-serif; font-size: 35px;text-align: left;margin-top: 85px; padding-left: 78px;}
+
+
+/* --- 상단 navigation bar --- */
+.nav {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    height: 93px;
+    padding: 0 78px; 
+    box-sizing: border-box; 
+    border-bottom: 3px dashed #CEF5F3; 
+    font-family: "NoonnuBasicGothic", sans-serif;
+}
+
+.nav h2, .nav p, .nav img { margin: 0; } /* 기본 여백 제거(줄 맞춤 깔끔) */
+
+.left_menu h2 {
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-start; 
+    
+    font-size: 45px; 
+    letter-spacing: -0.05em; 
+}
+
+.left_menu .subtitle { /* 모여서 쓰는 글 */
+    font-size: 12px; 
+    color: #666; 
+    margin-left: 15px; 
+    letter-spacing: -0.02em; /* 간격 살짝 줄임 */
+    font-weight: normal; /* 굵게 표시되지 않도록 일반 굵기로 설정 */
+}
+
+.middle_menu {
+    display: flex;
+    justify-content: center; 
+    gap: 160px; 
+    flex-grow: 1; 
+}
+.middle_menu p {
+    font-size: 25px; 
+}
+.active{
+    background-color: #CEF5F3;
+     padding: 10px 20px; 
+    border-radius: 8px; 
+}
+
+.right_profile img {
+    width: 50px; 
+    height: 50px;
+    border-radius: 50%; /* 원형 프로필 이미지 */
+    object-fit: cover; /* 이미지 비율 유지 */
+}
+
+
+/* --- 미디어 쿼리 --- */
+@media (max-width: 778px) {  /* 화면 크기 778px보다 작아지면 middle menu 숨김*/
+    .middle_menu {
+        display: none;
+    }
+}
+
+@media (max-width: 1000px) {  /* 화면 크기 1000px보다 작아지면 middle menu 간격 줄임*/
+    .middle_menu {
+        gap: 60px; 
+    }
+}
+
+
+
