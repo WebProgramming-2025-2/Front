@@ -2,12 +2,19 @@
 
 ## 📁 폴더 구조
 project/
+
 ├── css/
+
 │   └── style.css
+
 ├── pages/
+
 │   ├── page1.html (팀원1)
+
 │   ├── page2.html (팀원2)
+
 │   └── ...
+
 └── startpage.html (메인)
 
 ## 🎨 색상 사용법
@@ -30,24 +37,34 @@ project/
 ## 🔧 컴포넌트 사용법
 
 ### 입력창
+```html
 <input type="text" class="input-basic" placeholder="입력하세요">
+```
 
 ### 버튼 (소다소다 그라데이션 호버)
+```html
 <button class="btn-gradient soda">버튼</button>
+```
 
 ### 버튼 (몽글몽글 그라데이션 호버)
+```html
 <button class="btn-gradient cloud">버튼</button>
+```
 
 ### 텍스트 그림자
+```html
 <p class="text-shadow">그림자가 있는 텍스트</p>
+```
 
 ## 🎯 배경 효과
 모든 페이지에 다음 코드를 body 바로 아래 추가:
+```html
 <div class="background-decorations">
     <div class="bg-star"></div>
     <div class="bg-clover"></div>
     <div class="bg-sparkle"></div>
 </div>
+```
 
 ## 📐 화면 크기
 - 기본 크기: 1280 X 832
