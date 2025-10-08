@@ -54,6 +54,11 @@ body {
     overflow: hidden;
 }
 
+a {
+    color: black;
+    text-decoration: none;
+}
+
 /* ==================== 배경 효과 ==================== */
 .background-decorations {
     position: absolute;
@@ -115,6 +120,30 @@ body {
 .text-tiny { font-size: var(--font-tiny); }
 .text-super-tiny { font-size: var(--font-super-tiny); }
 
+.text-fill-star-blue {
+    -webkit-text-fill-color: var(--star-blue);
+}
+
+.text-fill-clover-green {
+    -webkit-text-fill-color: var(--clover-green);
+}
+
+.text-fill-sparkle-pink {
+    -webkit-text-fill-color: var(--sparkle-pink);
+}
+
+.text-fill-blue-text {
+    -webkit-text-fill-color: var(--blue-text);
+}
+
+.big-title {
+    font-family: "NoonnuBasicGothic", sans-serif;
+    font-size: var(--font-medium);
+    text-align: left;
+    margin-top: 85px;
+    padding-left: 78px;
+}
+
 /* ==================== 기본 입력 창 ==================== */
 .input-basic {
     width: 451px;
@@ -171,3 +200,72 @@ body {
 .bg-sparkle-pink-light { background-color: var(--sparkle-pink-light); }
 .bg-gradient-soda { background: var(--gradient-soda); }
 .bg-gradient-cloud { background: var(--gradient-cloud); }
+
+/* ==================== Navigation Bar ==================== */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 93px;
+    padding: 0 78px;
+    box-sizing: border-box;
+    border-bottom: 3px dashed var(--star-blue);
+    font-family: "NoonnuBasicGothic", sans-serif;
+}
+
+.nav h2, .nav p, .nav img {
+    margin: 0;
+}
+
+.left_menu h2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 45px;
+    letter-spacing: -0.05em;
+}
+
+.left_menu .subtitle {
+    font-size: 12px;
+    color: #666;
+    margin-left: 15px;
+    letter-spacing: -0.02em;
+    font-weight: normal;
+}
+
+.middle_menu {
+    display: flex;
+    justify-content: center;
+    gap: 160px;
+    flex-grow: 1;
+}
+
+.middle_menu p {
+    font-size: 25px;
+}
+
+.active {
+    background-color: var(--star-blue);
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+.right_profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* ==================== 미디어 쿼리 ==================== */
+@media (max-width: 1000px) {
+    .middle_menu {
+        gap: 60px;
+    }
+}
+
+@media (max-width: 778px) {
+    .middle_menu {
+        display: none;
+    }
+}
