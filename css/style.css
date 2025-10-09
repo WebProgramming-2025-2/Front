@@ -1,0 +1,271 @@
+/* ==================== 폰트 ==================== */
+@font-face {
+    font-family: 'NoonnuBasicGothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noon-2410@1.0/NoonnuBasicGothicRegular.woff2') format('woff2');
+    font-weight: normal;
+    font-display: swap;
+}
+
+/* ==================== CSS 변수 설정 ==================== */
+:root {
+    /* 색상 팔레트 */
+    --star-blue: #CEF5F3;
+    --star-blue-light: rgba(206, 245, 243, 0.5);
+    --clover-green: #D1E5C1;
+    --clover-green-light: rgba(209, 229, 193, 0.5);
+    --sparkle-pink: #FFD9F1;
+    --sparkle-pink-light: rgba(255, 217, 241, 0.5);
+    --background: #FEFEFE;
+    --shadow-gray: #D9D9D9;
+    --warning: #DD7576;
+    --blue-text: #9FD2D0;
+    
+    /* 그라데이션 */
+    --gradient-soda: linear-gradient(to right, #DAFFFD, #EEFFE1);
+    --gradient-cloud: linear-gradient(to right, #EEFFE1, #FFE5F5);
+    
+    /* 폰트 패밀리 */
+    --font-main: 'NoonnuBasicGothic', sans-serif;
+    
+    /* 폰트 크기 */
+    --font-super-large: 130px;
+    --font-very-large: 50px;
+    --font-large: 45px;
+    --font-medium-large: 40px;
+    --font-medium: 35px;
+    --font-medium-small: 30px;
+    --font-small: 25px;
+    --font-very-small: 20px;
+    --font-tiny: 15px;
+    --font-super-tiny: 12px;
+    
+    /* 그림자 */
+    --text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    --box-shadow: 0 4px 4px 0 var(--shadow-gray);
+}
+
+/* ==================== 기본 스타일 ==================== */
+body {
+    font-family: var(--font-main);
+    background-color: var(--background);
+    width: 1280px;
+    height: 832px;
+    position: relative;
+    overflow: hidden;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+/* ==================== 배경 효과 ==================== */
+.background-decorations {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.bg-star {
+    position: absolute;
+    width: 783px;
+    height: 574px;
+    left: 757px;
+    top: -90px;
+    transform: rotate(-15deg);
+    opacity: 1;
+    background-image: url("../images/배경별.png");
+    background-size: contain;
+}
+
+.bg-clover {
+    position: absolute;
+    width: 704px;
+    height: 698px;
+    left: 0px;
+    top: 0px;
+    opacity: 1;
+    background-image: url("../images/배경클로버.png");
+    background-size: contain;
+}
+
+.bg-sparkle {
+    position: absolute;
+    width: 547px;
+    height: 512px;
+    left: 990px;
+    top: 193px;
+    opacity: 1;
+    background-image: url("../images/배경반짝별.png");
+    background-size: contain;
+}
+
+/* ==================== 텍스트 스타일 ==================== */
+.text-shadow {
+    text-shadow: var(--text-shadow);
+}
+
+.text-super-large { font-size: var(--font-super-large); }
+.text-very-large { font-size: var(--font-very-large); }
+.text-large { font-size: var(--font-large); }
+.text-medium-large { font-size: var(--font-medium-large); }
+.text-medium { font-size: var(--font-medium); }
+.text-medium-small { font-size: var(--font-medium-small); }
+.text-small { font-size: var(--font-small); }
+.text-very-small { font-size: var(--font-very-small); }
+.text-tiny { font-size: var(--font-tiny); }
+.text-super-tiny { font-size: var(--font-super-tiny); }
+
+.text-fill-star-blue {
+    -webkit-text-fill-color: var(--star-blue);
+}
+
+.text-fill-clover-green {
+    -webkit-text-fill-color: var(--clover-green);
+}
+
+.text-fill-sparkle-pink {
+    -webkit-text-fill-color: var(--sparkle-pink);
+}
+
+.text-fill-blue-text {
+    -webkit-text-fill-color: var(--blue-text);
+}
+
+.big-title {
+    font-family: "NoonnuBasicGothic", sans-serif;
+    font-size: var(--font-medium);
+    text-align: left;
+    margin-top: 85px;
+    padding-left: 78px;
+}
+
+/* ==================== 기본 입력 창 ==================== */
+.input-basic {
+    width: 451px;
+    height: 70px;
+    border-radius: 30px;
+    background-color: var(--background);
+    box-shadow: var(--box-shadow);
+    border: none;
+    padding: 0 25px;
+    font-family: var(--font-main);
+    font-size: var(--font-very-small);
+}
+
+.input-basic::placeholder {
+    color: var(--shadow-gray);
+}
+
+/* ==================== 버튼 스타일 ==================== */
+.btn-gradient {
+    width: 451px;
+    height: 70px;
+    border-radius: 30px;
+    background-color: var(--background);
+    box-shadow: var(--box-shadow);
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-main);
+    font-size: var(--font-very-small);
+    transition: background 0.3s ease;
+}
+
+.btn-gradient.soda:hover {
+    background: var(--gradient-soda);
+}
+
+.btn-gradient.cloud:hover {
+    background: var(--gradient-cloud);
+}
+
+/* ==================== 색상 클래스 ==================== */
+/* 텍스트 색상 */
+.color-star-blue { color: var(--star-blue); }
+.color-clover-green { color: var(--clover-green); }
+.color-sparkle-pink { color: var(--sparkle-pink); }
+.color-blue-text { color: var(--blue-text); }
+.color-warning { color: var(--warning); }
+
+/* 배경 색상 */
+.bg-star-blue { background-color: var(--star-blue); }
+.bg-star-blue-light { background-color: var(--star-blue-light); }
+.bg-clover-green { background-color: var(--clover-green); }
+.bg-clover-green-light { background-color: var(--clover-green-light); }
+.bg-sparkle-pink { background-color: var(--sparkle-pink); }
+.bg-sparkle-pink-light { background-color: var(--sparkle-pink-light); }
+.bg-gradient-soda { background: var(--gradient-soda); }
+.bg-gradient-cloud { background: var(--gradient-cloud); }
+
+/* ==================== Navigation Bar ==================== */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 93px;
+    padding: 0 78px;
+    box-sizing: border-box;
+    border-bottom: 3px dashed var(--star-blue);
+    font-family: "NoonnuBasicGothic", sans-serif;
+}
+
+.nav h2, .nav p, .nav img {
+    margin: 0;
+}
+
+.left_menu h2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 45px;
+    letter-spacing: -0.05em;
+}
+
+.left_menu .subtitle {
+    font-size: 12px;
+    color: #666;
+    margin-left: 15px;
+    letter-spacing: -0.02em;
+    font-weight: normal;
+}
+
+.middle_menu {
+    display: flex;
+    justify-content: center;
+    gap: 160px;
+    flex-grow: 1;
+}
+
+.middle_menu p {
+    font-size: 25px;
+}
+
+.active {
+    background-color: var(--star-blue);
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+.right_profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* ==================== 미디어 쿼리 ==================== */
+@media (max-width: 1000px) {
+    .middle_menu {
+        gap: 60px;
+    }
+}
+
+@media (max-width: 778px) {
+    .middle_menu {
+        display: none;
+    }
+}
