@@ -1,6 +1,6 @@
 ---
-name: 이슈 템
-about: Snow Time 이슈 템플릿
+name: 이슈 템플릿
+about: Mogle 이슈 템플릿
 title: ''
 labels: ''
 assignees: ''
