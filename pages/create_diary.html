@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mogle - 다이어리 테마 선택</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .header {
+            justify-content: space-between;
+            align-items: center;
+            width: 1280px;
+            height: 93px;
+            margin: 0 auto 30px;
+            padding: 0 17px;
+            box-sizing: border-box;
+            border-bottom: 5px dashed var(--star-blue);
+            border-image: repeating-linear-gradient(90deg, #CEF5F3 0, #CEF5F3 15px, transparent 15px, transparent 25px) 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .left-header {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .logo-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-image {
+            width: 152px;
+        }
+
+        .page-title {
+            width: 654px;
+            font-size: var(--font-medium-large);
+            color: var(--shadow-gray);
+            margin-top:10px;
+            border: none;
+            outline: none;
+            background: transparent;
+            font-family: var(--font-main);
+        }
+
+        .page-title::placeholder {
+            color: var(--shadow-gray);
+        }
+
+
+        .profile-icon {
+            position: relative;
+            width: 100px;
+            height: 60px;
+            margin-bottom: 5px;
+        }
+
+        .icon-circle {
+            width: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: absolute;
+            overflow: hidden;
+        }
+
+        .icon-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .icon-circle:first-child {
+            top: 0;
+            left: 0;
+            z-index: 2;
+        }
+
+        .icon-circle:last-child {
+            top: 0;
+            left: 35px;
+            z-index: 1;
+        }
+
+        .icon-circle:hover {
+            transform: scale(1.02);
+        }
+
+        .container {
+            max-width: 1280px;
+            max-height: 570px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 0px 50px 0px 0px;
+        }
+
+        .left-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .notebook-card {
+            height: 550px;
+            width: 460px;
+            aspect-ratio: 0.75;
+            background: url('../images/테마 4.png');
+            background-size: cover;
+            background-position: center;
+            border-radius: 30px;
+            padding: 60px 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .right-section {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .theme-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            place-items: center;
+            margin-top: 40px;
+        }
+
+        .theme-card {
+            height: 190px;
+            width: 170px;
+            aspect-ratio: 0.7;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .theme-card:hover {
+            transform: translateY(-5px) scale(1.02);
+        }
+
+        .create-button {
+            width: 451px;
+            height: 70px;
+            border-radius: 30px;
+            background: var(--gradient-cloud);
+            box-shadow: var(--box-shadow);
+            cursor: pointer;
+            font-family: var(--font-main);
+            font-size: var(--font-small);
+            transition: background 0.3s ease;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            border: none;
+        }
+
+        .create-button:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="background-decorations">
+        <div class="bg-clover"></div>
+        <div class="bg-star"></div>
+        <div class="bg-sparkle"></div>
+    </div>    
+    <div class="header">
+        <div class="header-content">
+            <div class="left-header">
+                <div class="logo-section">
+                    <img src="../images/로고.png" alt="Mogle 로고" class="logo-image">
+                </div>
+                <input type="text" class="page-title" placeholder="다이어리의 이름을 작성하세요.">
+            </div>
+            <div class="profile-icon">
+                <div class="icon-circle">
+                    <img src="../images/클로버 프로필 사진.png" alt="Profile 1" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'clover\'></div>'">
+                </div>
+                <div class="icon-circle">
+                    <img src="../images/(기본) 프로필 사진 (1).png" alt="Profile 2" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'clover\'></div>'">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="left-section">
+            <div class="notebook-card">
+            </div>
+        </div>
+
+        <div class="right-section">
+            <div class="theme-grid">
+                <div class="theme-card">
+                    <img src="../images/테마 1.png" alt="테마 1" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
+                </div>
+                <div class="theme-card">
+                    <img src="../images/테마 2.png" alt="테마 2" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
+                </div>
+                <div class="theme-card">
+                    <img src="../images/테마 3.png" alt="테마 3" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
+                </div>
+                <div class="theme-card">
+                    <img src="../images/테마 4.png" alt="테마 4" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
+                </div>
+                <div class="theme-card">
+                    <img src="../images/테마 5.png" alt="테마 5" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
+                </div>
+                <div class="theme-card">
+                    <img src="../images/테마 6.png" alt="테마 6" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
+                </div>
+            </div>
+
+            <button class="create-button">다이어리 생성</button>
+        </div>
+    </div>
+</body>
+</html>
