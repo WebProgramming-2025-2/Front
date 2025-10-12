@@ -1,33 +1,107 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>책장 화면 - Mogle</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        html, body {
+            /* 스크롤 없애고 화면 전체 높이 사용 */
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-decorations">
+        <div class="bg-star"></div>
+        <div class="bg-clover"></div>
+        <div class="bg-sparkle"></div>
+    </div>
 
-    <head>
-        <title>Mogle's Home</title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="basic.css">
-        
-    </head>
-    
-    <body>
-        <div class = "nav">
-            <div class="left_menu">
-                <h2><a href="index.html">Mogle</a></h2>
-                <p class="subtitle"><b>모</b>여서 쓰는 <b>글</b></p>
-            </div>
-            
-            <div class = "middle_menu">
-                <p><a href="pf_home.html" class="active">책장</a></p>
-                <p><a href="pf_photo.html">친구 관리</a></p>
-                <p><a href="pf_music.html">마이페이지</a></p>
-            </div>
-            
-            <div class ="right_profile">
-                <img src="user-profile.png" alt="profile">
-            </div>
+    <div class="nav">
+        <div class="left_menu">
+            <h2><a href="index.html">Mogle</a></h2>
+            <p class="subtitle"><b>모</b>여서 쓰는 <b>글</b></p>
         </div>
         
-        <h2 class="big-title">즐겨찾기한 책장</h2>
+        <div class="middle_menu">
+            <p><a href="pf_home.html" class="active">책장</a></p>
+            <p><a href="pf_photo.html">친구 관리</a></p>
+            <p><a href="pf_music.html">마이페이지</a></p>
+        </div>
+        
+        <div class="right_profile">
+            <img src="user-profile.png" alt="profile">
+        </div>
+    </div>
+        
+    <main class="main-content-grid">
+    <div class="search-area">
+        <button class="add-button btn-gradient soda">+</button> 
+        
+        <div class="search-box-container">
+            <input type="text" placeholder="책장 검색" class="input-basic search-input">
+        </div>
+    </div>
     
-    </body>
+  <section class="favorite-bookshelves">
+        <h2 class="section-title text-medium-large" style="margin-top:70px;">즐겨찾기한 책장</h2>
+        <div class="horizontal-scroll-section">
+            <div class="bookshelf-row">
+                <div class="book-card favorite">
+                    <p class="book-title text-small">Best Friend</p>
+                    <a href="#" class="star-icon star-filled"><span></span></a> </div>
+                <div class="book-card favorite">
+                    <p class="book-title text-small">여행 친구</p>
+                    <a href="#" class="star-icon star-filled"><span></span></a>
+                </div>
+                <div class="book-card favorite">
+                    <p class="book-title text-small">덕질 메이트</p>
+                    <a href="#" class="star-icon star-filled"><span></span></a>
+                </div>
+             
+            </div>
 
+        </div>
+    </section>
+
+    <section class="all-bookshelves">
+        <h2 class="section-title text-medium-large">모든 책장</h2>
+        <div class="horizontal-scroll-section">
+            <div class="bookshelf-row">
+                <div class="book-card">
+                    <p class="book-title text-small">2025 과동기</p>
+                    <a href="#" class="star-icon star-empty"><span></span></a> </div>
+                <div class="book-card">
+                    <p class="book-title text-small">스터디 그룹</p>
+                    <a href="#" class="star-icon star-empty"><span></span></a>
+                </div>
+                <div class="book-card">
+                    <p class="book-title text-small">취미</p>
+                    <a href="#" class="star-icon star-empty"><span></span></a>
+                </div>
+                <div class="book-card">
+                    <p class="book-title text-small">영화</p>
+                    <a href="#" class="star-icon star-empty"><span></span></a>
+                </div>
+                <div class="book-card">
+                    <p class="book-title text-small">개발</p>
+                    <a href="#" class="star-icon star-empty"><span></span></a>
+                </div>
+                <div class="book-card">
+                    <p class="book-title text-small">독서 모임</p>
+                    <a href="#" class="star-icon star-empty"><span></span></a>
+                </div>
+                <div class="book-card">
+                    <p class="book-title text-small">개발</p>
+                    <a href="#" class="star-icon star-empty"><span></span></a>
+                </div>
+            </div>
+            <button class="scroll-button next-button color-star-blue">></button>
+        </div>
+    </section>
+</main>
+</body>
 </html>
