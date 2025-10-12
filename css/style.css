@@ -269,3 +269,76 @@ a {
         display: none;
     }
 }
+
+/*여기부터 내가 시작*/
+
+/* 콘텐츠 전체를 감싸는 영역 (배치의 기준점) */
+.content-area {
+    width: 100%;
+    /* 전체 높이 832px - 네비게이션바 높이 93px */
+    height: calc(100% - 93px); 
+    position: relative; /* 자식 요소들의 absolute 위치 기준 */
+}
+
+/* 1. 프로필 + 무드 */
+.profile-container {
+    position: absolute;
+    /* (피그마 x좌표) / (전체 너비) = % */
+    /* 예: 100px / 1280px = 7.8125% */
+    left: 7.8125%; 
+    /* 예: 65px / (832px - 93px) = 8.8% */
+    top: 8.8%;
+    
+    /* (프로필 너비) / (전체 너비) = % */
+    /* 200px / 1280px = 15.625% */
+    width: 15.625%;
+
+    /* 자식인 mood-icon의 위치 기준이 되기 위해 relative 속성 추가 */
+    position: relative; 
+}
+
+.profile-image {
+    width: 100%; /* 부모(profile-container)의 너비를 꽉 채움 */
+    height: 0;
+    /* 너비와 높이를 같게 만들어 정사각형 비율을 유지하는 트릭 */
+    padding-top: 100%; 
+    
+    border-radius: 50%; /* 원 모양으로 만들기 */
+    
+    /* 피그마에 있던 하늘색 배경 */
+    background-color: var(--star-blue-light); 
+    
+    /* 폴더 구조에 맞춰 경로 수정 필요. css 폴더 기준이므로 ../ */
+    background-image: url('../content/user-profile.png');
+    background-size: 80%; /* 이미지가 원 안에 적당히 보이도록 크기 조절 */
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: var(--box-shadow);
+}
+
+.mood-icon {
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+    
+    width: 32.5%; 
+    height: 0;
+    padding-top: 32.5%;
+    
+    background-color: var(--background);
+    border-radius: 50%;
+    box-shadow: var(--box-shadow);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2vw; 
+}
+
+.mood-icon::before {
+    content: '😆';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
