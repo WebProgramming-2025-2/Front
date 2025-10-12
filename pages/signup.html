@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* 전체 설정 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+            background: transparent;
+            overflow: visible;
+            max-width: 1280px;
+            max-height: 832px;
+            width: 100%;
+            position: relative;
+            margin: 0 auto;
+            z-index: 1;
+            align-items: stretch;
+        }
+
+        .divider {
+            flex-shrink: 0;
+            width: 2px;
+            background: #CEF5F3;
+            margin: 100px 0 80px 0;
+        }
+
+        .left-section {
+            z-index: 2;
+            flex: 1;
+            padding: 20px 60px 40px 40px;
+            background: transparent;
+        }
+
+        .profile-section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-right: 20px;
+            margin-left: 10px;
+        }
+
+        .input-name {
+            width: 345px;
+            height: 70px;
+            border-radius: 30px;
+            background-color: var(--background);
+            box-shadow: var(--box-shadow);
+            border: none;
+            padding: 0 25px;
+            font-family: var(--font-main);
+            font-size: var(--font-very-small);
+        }
+
+        .input-name::placeholder {
+            color: var(--shadow-gray);
+        }
+
+        .right-section {
+            z-index: 2;
+            flex: 1;
+            padding: 40px 40px 40px 60px;
+            background: transparent;
+        }
+
+        h1 {
+            font-size: var(--font-very-large);
+            font-weight: 700;
+            margin-bottom: 43px;
+        }
+
+        .camera-icon {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .nickname-input {
+            flex: 1;
+            flex-direction: column;
+        }
+
+        .nickname-input label {
+            font-size: var(--font-medium-small);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .form-group {
+            margin-top: 10px;
+            margin-left: 20px;
+        }
+
+        .input-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 51px;
+        }
+
+        .input-label {
+            font-size: var(--font-medium-small);
+            font-weight: 600;
+            min-width: 60px;
+        }
+
+        .input-email {
+            width: 424px;
+            height: 70px;
+            border-radius: 30px;
+            background-color: var(--background);
+            box-shadow: var(--box-shadow);
+            border: none;
+            padding: 0 25px;
+            font-family: var(--font-main);
+            font-size: var(--font-very-small);
+        }
+
+        .input-email::placeholder {
+            color: var(--shadow-gray);
+        }
+
+        .error-message {
+            color: var(--warning);
+            font-size: var(--font-tiny);
+            margin-top: -35px;
+        }
+
+        .email-verify-section {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .email-verify-section input {
+            flex: 1;
+        }
+        
+        .verify-button {
+            width: 211px;
+            height: 70px;
+            padding: 15px 25px;
+            border-radius: 30px;
+            background: var(--gradient-soda);
+            box-shadow: var(--box-shadow);
+            border: none;
+            cursor: pointer;
+            font-family: var(--font-main);
+            font-size: var(--font-very-small);
+            transition: background 0.3s ease;
+            margin-left: -10px;
+            margin-right: 10px;
+        }
+
+        .verify-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .verification-status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .status-text {
+            font-size: var(--font-tiny);
+            margin-top: 10px;
+        }
+
+        .input-verify {
+            width: 287px;
+            height: 70px;
+            border-radius: 30px;
+            background-color: var(--background);
+            box-shadow: var(--box-shadow);
+            border: none;
+            padding: 0 25px;
+            font-family: var(--font-main);
+            font-size: var(--font-very-small);
+        }
+
+        .input-verify::placeholder {
+            color: var(--shadow-gray);
+        }
+
+
+        .mogle-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--font-small);
+            font-weight: 700;
+            margin-top: 50px;
+            margin-bottom: 4px;
+            padding-top: 50px;
+            border-top: 2px solid var(--sparkle-pink);
+        }
+
+        .signup-button {
+            width: 466px;
+            height: 82;
+            padding: 18px;
+            background: var(--gradient-cloud);
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 30px;
+            box-shadow: var(--box-shadow);
+            transition: all 0.3s;
+            display: block;
+            margin: 30px auto 0 auto;
+        }
+
+        .signup-button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--box-shadow);
+        }
+
+        /* 아이콘 팝업 (항상 표시) CSS */
+        .icon-modal-static {
+            display: block;
+            position: absolute;
+            top: 280px;
+            left: 200px;
+            right: 740px;
+            bottom: auto;
+            height: 264px;
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: var(--box-shadow);
+            z-index: 100;
+        }
+
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 7px;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .icon-item:hover .icon-circle {
+            transform: scale(1.0);
+            box-shadow: var(--box-shadow);
+        }
+
+        .icon-label {
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-decorations">
+        <div class="bg-clover"></div>
+        <div class="bg-star"></div>
+        <div class="bg-sparkle"></div>
+    </div>
+
+    <div class="container">
+        <div class="left-section">
+            <h1>회원 정보를 입력해 주세요!</h1>
+            <div class="profile-section">
+                <div class="profile-image">
+                    <img src="../images/(기본) 프로필 사진.png" alt="별">
+                    <div class="camera-icon">
+                        <img src="../images/프로필 변경.png" alt="별">
+                    </div>
+                </div>
+                <div class="nickname-input">
+                    <div class="form-group">
+                        <label>닉네임(이름)</label>
+                        <input type="text" class="input-name" placeholder="닉네임을 입력하세요.">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-wrapper">
+                    <span class="input-label">ID</span>
+                    <input type="text" class="input-basic" placeholder="아이디를 입력하세요.">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-wrapper">
+                    <span class="input-label">PW</span>
+                    <input type="password" class="input-basic" placeholder="비밀 번호를 입력하세요.">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-wrapper">
+                    <span class="input-label"></span>
+                    <input type="password" class="input-basic" placeholder="비밀 번호를 한 번 더 입력하세요.">
+                </div>
+                <div class="error-message" style="margin-left: 75px;">비밀번호가 일치하지 않습니다.</div>
+            </div>
+            <!-- 아이콘 선택 팝업 HTML (선택) 표시) -->
+            <!-- <div class="icon-modal-static">
+                <div class="icon-grid">
+                    <div class="icon-item">
+                        <div class="icon-circle">
+                            <img src="../images/(기본) 프로필 사진 (1).png" alt="별">
+                        </div>
+                        <div class="icon-label">별</div>
+                    </div>
+                    <div class="icon-item">
+                        <div class="icon-circle">
+                            <img src="../images/클로버 프로필 사진.png" alt="클로버">
+                        </div>
+                        <div class="icon-label">클로버</div>
+                    </div>
+                    <div class="icon-item">
+                        <div class="icon-circle">
+                            <img src="../images/반짝별 프로필 사진.png" alt="반짝별">
+                        </div>
+                        <div class="icon-label">반짝별</div>
+                    </div>
+                    <div class="icon-item">
+                        <div class="icon-circle">
+                            <img src="../images/하트 프로필 사진.png" alt="하트">
+                        </div>
+                        <div class="icon-label">하트</div>
+                    </div>
+                    <div class="icon-item">
+                        <div class="icon-circle">
+                            <img src="../images/발자국 프로필 사진.png" alt="발자국">
+                        </div>
+                        <div class="icon-label">발자국</div>
+                    </div>
+                    <div class="icon-item">
+                        <div class="icon-circle">
+                            <img src="../images/커스텀 프로필 사진.png" alt="갤러리">
+                        </div>
+                        <div class="icon-label">갤러리</div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+        <div class="divider"></div>
+        <div class="right-section">
+            <div style="height: 80px;"></div>
+            <div class="form-group">
+                <div class="input-wrapper">
+                    <span class="input-label">Email</span>
+                    <input type="email" class="input-email" placeholder="이메일을 입력하세요.">
+                </div>
+                <div class="error-message" style="margin-left: 75px;">이메일 형식이 일치하지 않습니다.</div>
+            </div>
+
+            <div class="form-group">
+                <div class="email-verify-section">
+                    <button class="verify-button">이메일 인증</button>
+                    <input type="text" class="input-verify" placeholder="인증번호를 입력하세요.">
+                </div>
+                <div class="verification-status">
+                    <span class="status-text">인증 번호가 발송되었습니다.</span>
+                    <span class="status-text" style="margin-left: auto;">인증이 완료되었습니다.</span>
+                </div>
+            </div>
+
+            <div class="mogle-link">
+                Mogle로 친구들과 추억을 공유할 준비가 되었다면 ›
+            </div>
+
+            <button class="signup-button">Sign Up</button>
+        </div>
+    </div>
+</body>
+</html>
