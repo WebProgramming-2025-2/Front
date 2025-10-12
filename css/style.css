@@ -272,7 +272,7 @@ a {
 
 /*여기부터 내가 시작*/
 
-/* 콘텐츠 전체를 감싸는 영역 (배치의 기준점) */
+/* 1. 프로필사진+무드 */
 .content-area {
     width: 100%;
     /* 전체 높이 832px - 네비게이션바 높이 93px */
@@ -310,7 +310,7 @@ a {
     
     /* 폴더 구조에 맞춰 경로 수정 필요. css 폴더 기준이므로 ../ */
     background-image: url('../content/user-profile.png');
-    background-size: 80%; /* 이미지가 원 안에 적당히 보이도록 크기 조절 */
+    /* background-size: 80%; 이미지가 원 안에 적당히 보이도록 크기 조절 */
     background-repeat: no-repeat;
     background-position: center;
     box-shadow: var(--box-shadow);
@@ -341,4 +341,110 @@ a {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+/* 2. 닉네임 */
+.nickname-container {
+    position: absolute;
+    /* (프로필 left + 프로필 width + 간격) / 1280px */
+    /* (100px + 200px + 24px) / 1280px = 25.3% */
+    left: 25.3%;
+
+    /* 프로필과 세로 중앙 정렬을 위한 top 값 */
+    top: 17.8%;
+
+    /* (입력칸 너비 309px) / 1280px = 24.14% */
+    width: 24.14%;
+
+    /* (입력칸 높이 67px) / (콘텐츠 영역 높이 739px) = 9.06% */
+    /* 하지만 % 높이는 왜곡될 수 있으니 padding으로 높이를 조절하는 것이 좋습니다. */
+    padding: 2.2% 4%; /* 상하, 좌우 여백 */
+    
+    background-color: var(--background);
+    /* 충분히 둥글게 만들기 위한 값 */
+    border-radius: 50px;
+
+    /* 피그마에서 전달주신 그림자 값 적용 */
+    /* X:0, Y:4, Blur:4, Color: black 25% */
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+    /* 내부 요소(텍스트, 아이콘) 정렬 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box; /* 패딩이 너비에 영향을 주지 않도록 설정 */
+}
+
+.nickname-text {
+    /* 리드미 가이드에 따른 'Small' 크기 */
+    font-size: var(--font-small);
+    color: #000000;
+    /* 아이콘과의 간격 */
+    margin-left: 5%;
+}
+
+.edit-icon {
+    /* 아이콘 크기 */
+    width: 8%;
+    height: auto;
+}
+
+/* 3. 내 책장 */
+.bookshelf-container {
+    position: absolute;
+    /* (North 448px - nav 93px) / (콘텐츠 영역 739px) = 48% */
+    top: 48%;
+    /* (South 60px) / 739px = 8.1% */
+    bottom: 8.1%;
+    /* (West 82px) / 1280px = 6.4% */
+    left: 6.4%;
+    /* (East 669px) / 1280px = 52.2% */
+    right: 52.2%;
+
+    background-color: var(--background);
+    border-radius: 30px; /* 디자인 시안과 유사한 값 */
+    box-shadow: var(--box-shadow);
+
+    /* 내부 콘텐츠 정렬을 위해 padding 추가 */
+    padding: 4% 6%;
+    box-sizing: border-box;
+    
+    /* 헤더와 리스트를 세로로 쌓기 위함 */
+    display: flex;
+    flex-direction: column;
+}
+
+.bookshelf-header {
+    /* (헤더 높이 71px) / (전체 높이 324px) = 21.9% */
+    /* flex-basis는 flex 아이템의 초기 크기를 지정 */
+    flex-basis: 22%;
+    
+    /* '내 책장' 텍스트를 가운데 정렬 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* 아래 점선 테두리 */
+    border-bottom: 2px dashed var(--clover-green);
+}
+
+/* 제목 텍스트의 불필요한 기본 마진 제거 */
+.bookshelf-title {
+    margin: 0;
+}
+
+.bookshelf-list {
+    /* 남은 공간을 모두 차지하도록 설정 */
+    flex-grow: 1;
+    /* 리스트 아이템들을 세로로 정렬하고 간격 주기 */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; /* 아이템들을 균등하게 배치 */
+    padding-top: 5%; /* 헤더와의 간격 */
+}
+
+.bookshelf-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
