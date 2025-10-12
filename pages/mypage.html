@@ -1,144 +1,234 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
-
+    <title>MyPage</title>
+    <link rel="stylesheet" href="../css/style.css">
     <style>
         html, body {
             height: 100%;
             margin: 0;
             padding: 0;
         }
-    </style>
 
-    <style>
-        /* ==================== 마이페이지 전용 스타일 (Flexbox 버전) ==================== */
         .mypage-container {
-            display: flex; /* 자식 요소들을 가로로 배치 */
-            padding: 40px 80px; /* 페이지 전체의 상하, 좌우 여백 */
-            gap: 60px; /* 왼쪽과 오른쪽 영역 사이의 간격 */
-            height: calc(100% - 93px); /* 네비게이션바를 제외한 전체 높이 */
-            box-sizing: border-box;
-        }
-
-        .left-column, .right-column {
-            /* 두 영역이 공간을 균등하게 나눠 가짐 */
-            flex: 1; 
-        }
-
-        /* --- 왼쪽 영역 --- */
-        .left-column {
+            width: 1176px;
+            height: 622px;
+            margin: 44px auto 0; /* 상단 여백 44px, 좌우 자동 중앙 정렬 */
             display: flex;
-            flex-direction: column; /* 자식들을 세로로 배치 */
+            gap: 26px; /* 왼쪽과 오른쪽 영역 사이 간격 */
+        }
+
+        .left-section {
+            width: 529px;
+            display: flex;
+            flex-direction: column;
+            gap: 42px; /* 프로필/닉네임 영역과 책장 영역 사이 간격 */
+        }
+
+        .right-section {
+            width: 529px;
         }
         
-        .profile-section {
-            display: flex; /* 프로필 이미지와 닉네임 박스를 가로로 배치 */
-            align-items: center; /* 세로 중앙 정렬 */
-            margin-bottom: 40px; /* 아래 책장과의 간격 */
+        /* ==================== 프로필 & 닉네임 ==================== */
+        .profile-nickname-area {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px; /* 프로필과 닉네임 사이 간격 */
+            padding-top: 30px; /* 컨테이너 상단으로부터의 여백 */
+            padding-left: 38px;
         }
 
-        .profile-wrapper {
+        .profile-image-wrapper {
             position: relative;
-        }
-
-        .profile-image-bg {
             width: 200px;
             height: 200px;
             border-radius: 50%;
-            background-color: var(--star-blue-light);
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-shrink: 0; /* 크기 고정 */
             box-shadow: var(--box-shadow);
         }
 
-        .profile-image-bg img {
-            width: 80%;
-            height: 80%;
+        .profile-image-wrapper img {
+            width: 200px;
+            height: auto;
         }
 
-        .mood-icon-wrapper {
+        .mood-icon {
             position: absolute;
-            right: 5px;
-            bottom: 5px;
+            bottom: 0px;
+            right: 0px;
             width: 65px;
             height: 65px;
-            background-color: var(--background);
             border-radius: 50%;
+            background-color: var(--background);
+            justify-content: center;
+            align-items: center;
             box-shadow: var(--box-shadow);
+        }
+
+        .mood-icon img {
+            width: 45px;
+            height: auto;
+        }
+        
+        .nickname-wrapper {
+            width: 329px;
+            height: 86px;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 32px;
         }
 
         .nickname-box {
             width: 309px;
             height: 67px;
-            margin-left: 24px; /* 프로필과의 간격 */
-            padding: 0 25px;
-            background-color: var(--background);
-            border-radius: 50px;
-            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-sizing: border-box;
-        }
-        
-        .nickname-box .text {
-            font-size: var(--font-small);
-        }
-
-        .nickname-box .icon {
-            width: 24px;
-            height: auto;
-        }
-        
-        /* 3. 내 책장 */
-        .bookshelf-box {
-            width: 100%; /* 왼쪽 영역 너비에 맞춤 */
-            height: 324px;
             background-color: var(--background);
             border-radius: 30px;
             box-shadow: var(--box-shadow);
-            padding: 25px 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 25px;
             box-sizing: border-box;
+        }
+
+        .nickname-box .username {
+            font-size: var(--font-medium-small);
+        }
+        
+        .nickname-box .edit-icon {
+            width: 42px; /* 아이콘 크기 예시 */
+            height: 42px;
+            cursor: pointer;
+        }
+
+        /* ==================== 내 책장 ==================== */
+        .bookshelf-container {
+            width: 529px;
+            height: 324px;
+            background-color: var(--background);
+            border-radius: 40px;
+            box-shadow: var(--box-shadow);
+            margin-left: 38px; /* 왼쪽 정렬을 위한 여백 */
             display: flex;
             flex-direction: column;
         }
 
-        .bookshelf-header {
-            text-align: center;
-            padding-bottom: 20px;
-            margin-bottom: 20px;
+        .bookshelf-title {
+            width: 100%;
+            height: 71px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             font-size: var(--font-medium);
-            /* 점선 트릭 */
-            background-image: linear-gradient(to right, var(--clover-green) 50%, transparent 50%);
-            background-repeat: repeat-x;
-            background-size: 8px 2px;
-            background-position: 0 100%; /* 아래쪽에 위치 */
+            flex-shrink: 0;
         }
 
         .bookshelf-list {
+            width: 100%;
+            flex-grow: 1;
             display: flex;
             flex-direction: column;
-            gap: 20px; /* 목록 사이의 간격 */
+            align-items: center;
+            gap: 15px; /* 책장 아이템 사이 간격 */
+            padding: 10px 0;
         }
-        
+
         .bookshelf-item {
-            font-size: var(--font-medium-small);
+            width: 499px;
+            height: 57px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
+        .bookshelf-item-name {
+            width: 321px;
+            height: 57px;
+            display: flex;
+            align-items: center;
+            font-size: var(--font-medium-small);
+        }
+
+        .bookshelf-item-profiles {
+            width: 176px;
+            height: 57px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end; /* 아이콘을 오른쪽부터 쌓기 */
+            padding-right: 15px;
+        }
+        
+        .bookshelf-item-profiles .profile-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            box-sizing: border-box;
+        }
+
+        .bookshelf-item-profiles .profile-icon:not(:first-child) {
+            margin-left: -25px; /* 절반 겹치기 */
+        }
+        
+        /* ==================== 캘린더 ==================== */
+        .calendar-container {
+            width: 529px;
+            height: 566px;
+            background-color: var(--background);
+            border-radius: 40px;
+            box-shadow: var(--box-shadow);
+            padding: 38px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .calendar-header {
+            text-align: center;
+            font-size: var(--font-medium-small);
+            color: black;
+            padding: 15px 0;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .calendar-grid div {
+            font-size: var(--font-very-small);
+            color: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: 55px; /* 각 셀의 높이 */
+        }
+        
+        .calendar-grid .weekday {
+            font-weight: bold;
+            height: auto; /* 요일 셀 높이는 자동 */
+        }
+
+        .date-cell .date-num.warning {
+            color: var(--warning);
+        }
+
+        .date-cell .star-icon {
+            width: 30px;
+            height: 30px;
+            margin-top: 5px;
+        }
     </style>
 </head>
+
 
 <body>
     <div class="background-decorations">
@@ -146,48 +236,89 @@
         <div class="bg-clover"></div>
         <div class="bg-sparkle"></div>
     </div>
+
+    <div class = "nav">
+            <div class="left_menu">
+                <h2><a href="index.html">Mogle</a></h2>
+                <p class="subtitle"><b>모</b>여서 쓰는 <b>글</b></p>
+            </div>
+            
+            <div class = "middle_menu">
+                <p><a href="pf_home.html" class="active">책장</a></p>
+                <p><a href="pf_photo.html">친구 관리</a></p>
+                <p><a href="pf_music.html">마이페이지</a></p>
+            </div>
+            
+            <div class ="right_profile">
+                <img src="user-profile.png" alt="profile">
+            </div>
+        </div>
     
-    <div class="nav">
-        <div class="left_menu">
-            <h2><a href="startpage.html">Mogle</a></h2>
-            <p class="subtitle"><b>모</b>여서 쓰는 <b>글</b></p>
+    <div class="mypage-container">
+        <div class="left-section">
+            <div class="profile-nickname-area">
+                <div class="profile-image-wrapper">
+                    <img src="../content/user-profile.png" alt="프로필 별">
+                    <div class="mood-icon">
+                        <img src="../images/무드티콘.png" alt="무드 이모티콘">
+                    </div>
+                </div>
+                <div class="nickname-wrapper">
+                    <div class="nickname-box">
+                        <span class="username">눈송이</span>
+                        <img class="edit-icon" src="../images/닉네임 수정.png" alt="닉네임 수정">
+                    </div>
+                </div>
+            </div>
+            <div class="bookshelf-container">
+                <div class="bookshelf-title">내 책장</div>
+                <div class="bookshelf-list">
+                    <div class="bookshelf-item">
+                        <div class="bookshelf-item-name">2025 과동기</div>
+                        <div class="bookshelf-item-profiles">
+                            <img src="../content/user-profile.png" alt="profile icon" class="profile-icon">
+                            <img src="../content/user-profile.png" alt="profile icon" class="profile-icon">
+                        </div>
+                    </div>
+                    <div class="bookshelf-item">
+                        <div class="bookshelf-item-name">2024-2 슬록스</div>
+                        <div class="bookshelf-item-profiles">
+                             <img src="../content/user-profile.png" alt="profile icon" class="profile-icon">
+                             <img src="../content/user-profile.png" alt="profile icon" class="profile-icon">
+                             <img src="../content/user-profile.png" alt="profile icon" class="profile-icon">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="middle_menu">
-            <p><a href="home.html">책장</a></p>
-            <p><a href="#">친구 관리</a></p>
-            <p><a href="mypage.html" class="active">마이페이지</a></p>
-        </div>
-        <div class="right_profile">
-            <img src="../content/user-profile.png" alt="profile">
+
+        <div class="right-section">
+            <div class="calendar-container">
+                <div class="calendar-header">&lt; 10월 &gt;</div>
+                <div class="calendar-grid">
+                    <div class="weekday">월</div>
+                    <div class="weekday">화</div>
+                    <div class="weekday">수</div>
+                    <div class="weekday">목</div>
+                    <div class="weekday">금</div>
+                    <div class="weekday">토</div>
+                    <div class="weekday">일</div>
+                    <div class="date-cell">
+                        <span class="date-num">1</span>
+                        <img src="../images/별.png" alt="별 아이콘" class="star-icon">
+                    </div>
+                    <div class="date-cell"><span class="date-num">2</span></div>
+                    <div class="date-cell"><span class="date-num warning">3</span></div>
+                    <div class="date-cell">
+                        <span class="date-num warning">4</span>
+                        <img src="../images/별.png" alt="별 아이콘" class="star-icon">
+                    </div>
+                    <div class="date-cell"><span class="date-num"></span></div>
+                    <div class="date-cell"><span class="date-num"></span></div>
+                    <div class="date-cell"><span class="date-num"></span></div>
+                </div>
+            </div>
         </div>
     </div>
-
-    <main class="mypage-container">
-        <div class="left-column">
-            <section class="profile-section">
-                <div class="profile-wrapper">
-                    <div class="profile-image-bg">
-                        <img src="../content/user-profile.png" alt="프로필 이미지">
-                    </div>
-                    <div class="mood-icon-wrapper">😆</div>
-                </div>
-                <div class="nickname-box">
-                    <span class="text">눈송이</span>
-                    <img class="icon" src="../images/닉네임 수정.png" alt="수정">
-                </div>
-            </section>
-            
-            <section class="bookshelf-box">
-                <div class="bookshelf-header">내 책장</div>
-                <div class="bookshelf-list">
-                    <div class="bookshelf-item">2025 과동기</div>
-                    <div class="bookshelf-item">2024-2 솔록스</div>
-                </div>
-            </section>
-        </div>
-        
-        <div class="right-column">
-            </div>
-    </main>
 </body>
 </html>
