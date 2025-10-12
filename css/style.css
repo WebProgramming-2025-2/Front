@@ -259,10 +259,10 @@ a {
     font-size: 25px;
 }
 
-.active {
-    background-color: var(--star-blue);
-    padding: 10px 20px;
-    border-radius: 8px;
+.middle_menu a:hover:not(.active) {
+    font-weight: bold;
+    transform: scale(1.15);
+    text-shadow: var(--text-shadow);
 }
 
 .right_profile img {
@@ -271,6 +271,7 @@ a {
     border-radius: 50%;
     object-fit: cover;
 }
+
 
 /* ==================== 미디어 쿼리 ==================== */
 @media (max-width: 1000px) {
@@ -339,70 +340,6 @@ a {
     z-index: 10; 
 }
 
-/* ==================== 메인 컨텐츠 그리드 배치 ==================== */
-.main-content-grid {
-    height: calc(100vh - 96px); 
-    padding: 30px 78px;
-    box-sizing: border-box; 
-    
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr; 
-    gap: 30px; 
-    overflow-y: auto;
-}
-
-/* ==================== 책장 카드 ==================== */
-.book-card {
-    position: relative;
-    flex-shrink: 0; 
-    width: 215px; 
-    height: 215px;
-    border-radius: 20px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 15px;
-    transition: transform 0.2s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-}
-
-.book-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-}
-
-
-.book-title {
-    font-size: var(--font-very-small);
-    color: #000;
-    margin: 0;
-    padding-left: 5px;
-}
-
-.horizontal-scroll-section {
-    position: relative;
-    padding-right: 50px; 
-    width: 1390px; 
-    max-width: calc(100vw - 78px * 2 - 50px); 
-    overflow: hidden; 
-    margin-bottom: 30px;
-}
-
-.bookshelf-row {
-    display: flex;
-    gap: 20px; 
-    
-    position: relative;
-    left: 0;
-    transition: left 0.3s ease-out; 
-    
-    flex-wrap: nowrap; 
-    justify-content: flex-start; 
-}
-
 /* ==================== 별 아이콘 ==================== */
 
 .star-icon {
@@ -435,33 +372,4 @@ a {
 
 .star-icon:hover span {
     filter: brightness(1.1);
-}
-/* ==================== 스크롤 버튼 스타일 ==================== */
-
-.scroll-button {
-    position: absolute;
-    top: 50%; 
-    right: 0;
-    transform: translateY(-50%);
-    
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: var(--background);
-    box-shadow: var(--box-shadow);
-    border: none;
-    cursor: pointer;
-    
-    font-size: var(--font-medium);
-    line-height: 40px; 
-    text-align: center;
-    font-weight: bold;
-    color: var(--blue-text); 
-    transition: background 0.2s;
-    z-index: 5;
-}
-
-.scroll-button:hover {
-    background-color: var(--star-blue);
-    color: white; 
 }

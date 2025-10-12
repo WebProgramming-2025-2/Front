@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
-    <title>책장 화면 - Mogle</title>
+    <title>책장 생성 - Mogle</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
-
     <style>
-        html, body {
+           html, body {
             height: 100%;
             margin: 0;
             padding: 0;
@@ -105,25 +105,61 @@
             padding: 10px 20px;
             border-radius: 8px;
         }
-
-        /* ==================== 팝업 스타일 ==================== */
+        /* ==================== 팝업 ==================== */
         .add-book-popup {
             position: absolute;
             top: 195px;
-            /* 위치 조정 */
             left: 510px;
-            /* right -> left 로 변경 */
             width: 580px;
             background-color: var(--background);
             border-radius: 20px;
             padding: 40px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-            display: none;
-            /* JS가 flex로 변경하여 표시 */
+            display: flex;
+            /* 이 페이지에서는 팝업이 보이도록 함 */
             flex-direction: column;
             gap: 25px;
             z-index: 50;
             box-sizing: border-box;
+        }
+
+        .close-popup-btn {
+            position: absolute;
+            top: 25px;
+            right: 30px;
+            background: transparent;
+            border: none;
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: var(--text-gray);
+            cursor: pointer;
+            padding: 0;
+            line-height: 1;
+        }
+
+        .close-popup-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: none;
+            border-radius: 50%; /* 동그란 모양으로 만듭니다 */
+            font-size: 2rem;
+            font-weight: 300;
+            color: var(--text-gray);
+            cursor: pointer;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s, color 0.2s; /* 부드러운 효과를 위한 transition */
+        }
+
+        .close-popup-btn:hover {
+            background-color: #f0f0f0; /* 연한 회색 배경 추가 */
+            color: #000; /* 글자색을 더 진하게 변경 */
         }
 
         .add-book-popup h2 {
@@ -131,7 +167,6 @@
             margin: 0;
         }
 
-        /* 1. 책장 이름 입력란 스타일 수정 */
         .modal-input {
             width: 100%;
             height: 60px;
@@ -182,7 +217,8 @@
             border-radius: 50%;
         }
 
-        .friend-add-btn, .friend-remove-btn {
+        .friend-add-btn,
+        .friend-remove-btn {
             width: 30px;
             height: 30px;
             border-radius: 50%;
@@ -214,28 +250,28 @@
             margin-top: 10px;
         }
 
-        /* 3. 생성 버튼 스타일 수정 */
         .btn-create {
             padding: 12px 30px;
             border-radius: 25px;
-            /* 더 둥글게 */
             border: none;
-            background: var(--background); /* 기본 배경을 흰색(var(--background))으로 변경 */
-            transition: background 0.3s ease, transform 0.2s; /* 배경색 전환 효과 추가 */
+            background: var(--background);
             box-shadow: var(--box-shadow);
             color: black;
             font-family: var(--font-main);
             font-size: var(--font-very-small);
             font-weight: bold;
             cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s;
         }
 
         .btn-create:hover {
-        background: var(--gradient-soda); /* 마우스를 올렸을 때만 그라데이션 적용 */
-        transform: scale(1.02);
+            background: var(--gradient-soda);
+            transform: scale(1.02);
         }
+
     </style>
 </head>
+
 <body>
     <div class="background-decorations">
         <div class="bg-star"></div>
@@ -262,7 +298,7 @@
 
     <main class="main-content-grid">
         <div class="search-area">
-            <button class="add-button btn-gradient soda"><a href="home-popup.html">+</a></button>
+            <a href="home.html" class="add-button btn-gradient soda">+</a>
             <div class="search-box-container">
                 <input type="text" placeholder="책장 검색" class="input-basic search-input">
             </div>
@@ -271,7 +307,6 @@
         <section class="favorite-bookshelves">
             <h2 class="section-title">즐겨찾기한 책장</h2>
             <div class="horizontal-scroll-section" data-scroll-id="1">
-                
                 <div class="bookshelf-row">
                     <div class="book-card favorite">
                         <p class="book-title">Best Friend</p>
@@ -321,6 +356,45 @@
         </section>
     </main>
 
-    
+    <div id="addBookPopup" class="add-book-popup">
+        <a href="home.html" class="close-popup-btn">&times;</a>
+        <h2>새로운 책장 생성</h2>
+        <input type="text" class="modal-input" placeholder="새로운 책장의 이름을 작성하세요.">
+        <div class="friend-list">
+            <div class="friend-item">
+                <div class="friend-info">
+                    <div class="friend-icon" style="background-color: var(--clover-green-light);"></div>
+                    <span>클로버</span>
+                </div>
+                <button class="friend-remove-btn">×</button>
+            </div>
+            <div class="friend-item">
+                <div class="friend-info">
+                    <div class="friend-icon" style="background-color: var(--star-blue-light);"></div>
+                    <span>눈송이</span>
+                </div>
+                <button class="friend-add-btn">+</button>
+            </div>
+            <div class="friend-item">
+                <div class="friend-info">
+                    <div class="friend-icon" style="background-color: var(--sparkle-pink-light);"></div>
+                    <span>꽃송이</span>
+                </div>
+                <button class="friend-add-btn">+</button>
+            </div>
+            <div class="friend-item">
+                <div class="friend-info">
+                    <div class="friend-icon" style="background-color: #f0e68c;"></div>
+                    <span>눈덩이</span>
+                </div>
+                <button class="friend-add-btn">+</button>
+            </div>
+        </div>
+        <div class="create-btn-container">
+            <button class="btn-create">생성</button>
+        </div>
+    </div>
+
 </body>
+
 </html>
