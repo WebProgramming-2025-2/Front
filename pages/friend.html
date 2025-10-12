@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>배경 꾸미기</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        html, body{
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-decorations">
+        <div class="bg-clover"></div>
+        <div class="bg-star"></div>
+        <div class="bg-sparkle"></div>
+    </div>
+
+    <div class="nav">
+        <div class="left_menu">
+            <h2><a href="index.html">Mogle</a></h2>
+            <p class="subtitle"><b>모</b>여서 쓰는 <b>글</b></p>
+        </div>
+        
+        <div class="middle_menu">
+            <p><a href="pf_home.html" >책장</a></p>
+            <p><a href="pf_photo.html" class="active">친구 관리</a></p>
+            <p><a href="pf_music.html">마이페이지</a></p>
+        </div>
+        
+        <div class="right_profile">
+            <img src="user-profile.png" alt="profile">
+        </div>
+    </div>
+
+    <main class="main-content-grid">
+    <div class="search-area">
+        <button class="add-button btn-gradient soda">+</button> 
+        
+        <div class="search-box-container">
+            <input type="text" placeholder="친구 검색" class="input-basic search-input">
+        </div>
+    </div>
+
+        <div class="friend-list-container">
+            <ul class="friend-list">
+                <li class="friend-item">
+                    <div class="profile-picture"></div>
+
+                    <div class="friend-info">
+                        <div class="friend-name-container">
+                            <span class="text-medium-large font-main">클로버</span>
+                        </div>
+
+                        <div class="friend-desc-container">
+                            <span class="text-medium font-main">
+                                공유 책장 | 
+                                <a href="#" class="color-blue-text">Best Friend</a>
+                            </span>
+                        </div>
+                    </div>
+                    <button class="more-options-btn">⋮</button>
+                </li>
+
+                <li class="friend-item">
+                    <div class="profile-picture"></div>
+
+                    <div class="friend-info">
+                        <div class="friend-name-container">
+                            <span class="text-medium-large font-main">눈숙명</span>
+                        </div>
+
+                        <div class="friend-desc-container">
+                            <span class="text-medium font-main">
+                                공유 책장 | 
+                                <a href="#" class="color-blue-text">고딩칭구들</a>
+                            </span>
+                        </div>
+                    </div>
+                    <button class="more-options-btn">⋮</button>
+                </li>
+
+                <li class="friend-item">
+                    <div class="profile-picture"></div>
+                    <div class="mood">😆</div>
+
+                    <div class="friend-info">
+                        <div class="friend-name-container">
+                            <span class="text-medium-large font-main">김송이</span>
+                        </div>
+
+                        <div class="friend-desc-container">
+                            <span class="text-medium font-main">
+                                공유 책장 | 
+                                <a href="#" class="color-blue-text">2025 과동기</a>
+                            </span>
+                        </div>
+                    </div>
+                    <button class="more-options-btn">⋮</button>
+                </li>
+            </ul>
+            <div class="options-popup">
+                <a herf class="friend-bs-add">함께할 책장 추가</a>
+                <a href class="friend-del">친구 삭제</a>
+            </div>
+        </div>
+    </div>
+    <div class="option-friend-add">
+        <a herf class="friend-add">친구 추가</a>
+        <div class="friend-email">
+            <input type="text" placeholder="친구의 이메일을 입력하세요" class="input-basic search-input">
+        </div>
+        <button class="friend-add-button">추가</button>
+        <div class="friend-add-warning">이메일 형식이 일치하지 않습니다.</div>
+    </div>
+    </main>
+</body>
+</html>
