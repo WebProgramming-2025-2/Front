@@ -12,20 +12,6 @@
             box-sizing: border-box;
         }
 
-        .header {
-            justify-content: space-between;
-            align-items: center;
-            width: 1280px;
-            height: 93px;
-            margin: 0 auto 30px;
-            padding: 0 17px;
-            box-sizing: border-box;
-            border-bottom: 5px dashed var(--star-blue);
-            border-image: repeating-linear-gradient(90deg, #CEF5F3 0, #CEF5F3 15px, transparent 15px, transparent 25px) 1;
-            position: relative;
-            z-index: 1;
-        }
-
         .header-content {
             display: flex;
             justify-content: space-between;
@@ -37,16 +23,7 @@
             align-items: center;
             gap: 50px;
         }
-
-        .logo-section {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .logo-image {
-            width: 152px;
-        }
-
+        
         .page-title {
             width: 654px;
             font-size: var(--font-medium-large);
@@ -109,7 +86,9 @@
             max-height: 570px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            padding: 0px 50px 0px 0px;
+            padding: 30px 50px 0px 0px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .left-section {
@@ -140,9 +119,9 @@
         .theme-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
+            gap: 30px;
             place-items: center;
-            margin-top: 40px;
+            margin-top: 30px;
         }
 
         .theme-card {
@@ -159,26 +138,6 @@
         .theme-card:hover {
             transform: translateY(-5px) scale(1.02);
         }
-
-        .create-button {
-            width: 451px;
-            height: 70px;
-            border-radius: 30px;
-            background: var(--gradient-cloud);
-            box-shadow: var(--box-shadow);
-            cursor: pointer;
-            font-family: var(--font-main);
-            font-size: var(--font-small);
-            transition: background 0.3s ease;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-            border: none;
-        }
-
-        .create-button:hover {
-            transform: translateY(-2px);
-        }
     </style>
 </head>
 <body>
@@ -187,21 +146,19 @@
         <div class="bg-star"></div>
         <div class="bg-sparkle"></div>
     </div>    
-    <div class="header">
-        <div class="header-content">
-            <div class="left-header">
-                <div class="logo-section">
-                    <img src="../images/로고.png" alt="Mogle 로고" class="logo-image">
-                </div>
-                <input type="text" class="page-title" placeholder="다이어리의 이름을 작성하세요.">
+    <div class="nav">
+        <div class="left_menu">
+            <h2><a href="index.html">Mogle</a></h2>
+            <p class="subtitle"><b>모</b>여서 쓰는 <b>글</b></p>
+        </div>
+        <!-- 나중에 css 머지 하면 수정 -->
+        <input type="text" class="page-title" placeholder="다이어리의 이름을 작성하세요.">
+        <div class="profile-icon">
+            <div class="icon-circle">
+                <img src="../images/클로버 프로필 사진.png" alt="Profile 1" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'clover\'></div>'">
             </div>
-            <div class="profile-icon">
-                <div class="icon-circle">
-                    <img src="../images/클로버 프로필 사진.png" alt="Profile 1" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'clover\'></div>'">
-                </div>
-                <div class="icon-circle">
-                    <img src="../images/(기본) 프로필 사진 (1).png" alt="Profile 2" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'clover\'></div>'">
-                </div>
+            <div class="icon-circle">
+                <img src="../images/별 프로필 사진.png" alt="Profile 2" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'clover\'></div>'">
             </div>
         </div>
     </div>
@@ -234,7 +191,7 @@
                 </div>
             </div>
 
-            <button class="create-button">다이어리 생성</button>
+            <button class="btn-gradient cloud" style="width: 451px; height: 70px; margin-left: auto; margin-right: auto; font-size: var(--font-small);">다이어리 생성</button>
         </div>
     </div>
 </body>
