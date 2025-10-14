@@ -21,8 +21,8 @@
     --blue-text: #9FD2D0;
     
     /* 그라데이션 */
-    --gradient-soda: linear-gradient(to right, #DAFFFD, #EEFFE1);
-    --gradient-cloud: linear-gradient(to right, #EEFFE1, #FFE5F5);
+    --gradient-soda: linear-gradient(to bottom, #DAFFFD, #EEFFE1);
+    --gradient-cloud: linear-gradient(to bottom, #EEFFE1, #FFE5F5);
     
     /* 폰트 패밀리 */
     --font-main: 'NoonnuBasicGothic', sans-serif;
@@ -40,7 +40,7 @@
     --font-super-tiny: 12px;
     
     /* 그림자 */
-    --text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    --text-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
     --box-shadow: 0 4px 4px 0 var(--shadow-gray);
 }
 
@@ -48,8 +48,6 @@
 body {
     font-family: var(--font-main);
     background-color: var(--background);
-    width: 1280px;
-    height: 832px;
     position: relative;
     overflow: hidden;
 }
@@ -59,9 +57,10 @@ a {
     text-decoration: none;
 }
 
-/* ==================== 배경 효과 ==================== */
+/* ==================== 배경 효과 (수정) ==================== */
+
 .background-decorations {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -113,6 +112,8 @@ a {
     background-size: contain;
 }
 
+
+
 /* ==================== 텍스트 스타일 ==================== */
 .text-shadow {
     text-shadow: var(--text-shadow);
@@ -145,14 +146,20 @@ a {
     -webkit-text-fill-color: var(--blue-text);
 }
 
-.big-title {
+.big-title, .section-title {
     font-family: "NoonnuBasicGothic", sans-serif;
-    font-size: var(--font-medium);
+    font-size: var(--font-medium-large); 
     text-align: left;
-    margin-top: 85px;
-    padding-left: 78px;
+    margin: 0; 
+    padding: 0; 
+    margin-bottom:15px;
 }
 
+.underline {
+    text-decoration: underline wavy;
+    text-decoration-thickness: 15%;
+    text-underline-offset: 20%;
+}
 /* ==================== 기본 입력 창 ==================== */
 .input-basic {
     width: 451px;
@@ -172,16 +179,15 @@ a {
 
 /* ==================== 버튼 스타일 ==================== */
 .btn-gradient {
-    width: 451px;
-    height: 70px;
-    border-radius: 30px;
+    width: 466px;
+    height: 85px;
+    border-radius: 40px;
     background-color: var(--background);
     box-shadow: var(--box-shadow);
     border: none;
     cursor: pointer;
     font-family: var(--font-main);
-    font-size: var(--font-very-small);
-    transition: background 0.3s ease;
+    transition: var(--background) 0.3s ease;
 }
 
 .btn-gradient.soda:hover {
@@ -253,10 +259,10 @@ a {
     font-size: 25px;
 }
 
-.active {
-    background-color: var(--star-blue);
-    padding: 10px 20px;
-    border-radius: 8px;
+.middle_menu a:hover:not(.active) {
+    font-weight: bold;
+    transform: scale(1.15);
+    text-shadow: var(--text-shadow);
 }
 
 .right_profile img {
@@ -265,6 +271,7 @@ a {
     border-radius: 50%;
     object-fit: cover;
 }
+
 
 /* ==================== 미디어 쿼리 ==================== */
 @media (max-width: 1000px) {
@@ -278,6 +285,14 @@ a {
         display: none;
     }
 }
+
+@media (max-width: 960px) {
+    .add-button.btn-gradient,
+    .search-box-container {
+        display: none;
+    }
+}
+
 
 /* ==================== 버튼 스타일 활용 ==================== */
 
@@ -325,281 +340,58 @@ a {
     z-index: 10; 
 }
 
-/* ==================== 메인 컨텐츠 배치 ==================== */
+/* ==================== 별 아이콘 ==================== */
+
+.star-icon {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    width: 28px;
+    height: 28px;
+    display: block;
+    cursor: pointer;
+}
+
+.star-icon span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: filter 0.3s ease;
+}
+
+.star-filled span {
+    background-image: url("../images/별.png");
+}
+
+.star-empty span {
+    background-image: url("../images/빈 별.png");
+}
+
+.star-icon:hover span {
+    filter: brightness(1.1);
+}
+
+/* ==================== 메인 컨텐츠 그리드 배치 ==================== */
 .main-content-grid {
-    height: calc(100vh - 96px); 
+    height: calc(100vh - 96px);
     padding: 30px 78px;
-    box-sizing: border-box; 
-    
+    box-sizing: border-box;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr; 
-    gap: 30px; 
-    overflow-y: auto;
-}
-
-/* ==================== 친구 목록 ==================== */
-.friend-list-container {
-    width: 985px;
-    height: 400px;
-    
-    margin: 0 auto; 
-    
-    margin-top: 120px;
-
-    overflow-y: auto;
-}
-
-.friend-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
+    grid-template-rows: auto 1fr;
     gap: 30px;
-}
-
-/* 친구 한 명 카드 공통 스타일 */
-.friend-item {
-    position: relative;
-
-    width: 100%;
-    height: 163px;
-    border-radius: 30px;
-    background-color: white;
-    box-shadow: var(--box-shadow);
-}
-
-.friend-info{
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-
-    width: 751px;
-    height: 115px;
-    top: 24px;
-    left: 163px;
-}
-
-.friend-name-container{
-    position: absolute;
-    display: flex;
-
-    width: 106;
-    height: 56;
-    top: 5px;
-}
-
-.friend-desc-container{
-    position: absolute;
-    display: flex;
-
-    width: 506;
-    height: 61;
-    top: 64px;
-}
-
-.profile-picture{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 31px;
-    left: 33px;
-    border-radius: 100px;
-    border-width: 3px;
-    border-style: solid;
-
-    background-size: cover;
-    background-position: center;
-}
-
-.friend-item:nth-child(1) .profile-picture {
-    background-image: url("https://raw.githubusercontent.com/WebProgramming-2025-2/Front/refs/heads/mogle/images/%ED%81%B4%EB%A1%9C%EB%B2%84.png");
-    border-color: var(--clover-green);
-}
-
-.friend-item:nth-child(2) .profile-picture {
-    background-image: url("https://raw.githubusercontent.com/WebProgramming-2025-2/Front/refs/heads/mogle/images/%EB%B3%84.png");
-    border-color: var(--star-blue);
-}
-
-.friend-item:nth-child(3) .profile-picture {
-    background-image: url("https://raw.githubusercontent.com/WebProgramming-2025-2/Front/refs/heads/mogle/images/%EB%B0%98%EC%A7%9D%EB%B3%84.png");
-    border-color: var(--sparkle-pink);
-}
-
-.mood {
-    width: 35px;
-    height: 35px;
-    top: 96px;
-    left: 98px;
-    border-radius: 100px;
-    position: absolute;
-    background-color: white;
-    box-shadow: var(--box-shadow);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.more-options-btn {
-    position: absolute;
-    
-    width: 40px;
-    height: 54px;
-    top: 54px;
-    left: 914px;
-
-    background: none;
-    border: none;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
-    color: #CCCCCC;
-    
-    cursor: pointer;
-}
-
-/* ==================== 더보기 버튼 클릭시 생성되는 팝업 ==================== */
-
-.options-popup {
-    /* 평소에는 숨겨둡니다. */
-    display: none;
-    z-index: 10;
-    
-    position: absolute;
-    width: 330px;
-    height: 118px;
-    top: 206px;
-    left: 679px;
-
-    border-top-left-radius: 40px;
-    border-bottom-right-radius: 40px;
-    border-bottom-left-radius: 40px;
-    
-    background-color: white;
-    box-shadow: var(--box-shadow);
-    padding: 10px;
-    box-sizing: border-box;
-
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-}
-
-.friend-bs-add{
-    display: none;
-    position: absolute;
-    width: 164;
-    height: 34;
-    top: 21px;
-    left: 83px;
-    font-size: var(--font-small);
-}
-
-.friend-del{
-    display: none;
-    position: absolute;
-    width: 93;
-    height: 34;
-    top: 69px;
-    left: 118px;
-    font-size: var(--font-small);
-    color: var(--warning);
-}
-
-/* ==================== 친구 추가 버튼 클릭시 생성되는 창 ==================== */
-
-.option-friend-add
-{
-    /* 평소에는 숨겨둡니다. */
-    display: none;
-    z-index: 11;
-    position: absolute;
-
-    width: 565px;
-    height: 217px;
-    top: 260px;
-    left: 258px;
-    border-top-left-radius: 40px;
-    border-bottom-right-radius: 40px;
-    border-bottom-left-radius: 40px;
-    box-shadow: var(--box-shadow);
-    background-color: white;
-    padding: 10px;
-    box-sizing: border-box;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-}
-
-.friend-add{
-    width: 131;
-    height: 47;
-    top: 20px;
-    left: 26px;
-    position: absolute;
-    display: flex;
-    font-size: var(--font-medium);
-}
-
-.friend-email{
-    width: 387px;
-    height: 70px;
-    top: 86px;
-    left: 26px;
-    border-radius: 30px;
-    position: absolute;
-    display: flex;
-}
-
-.search-box-container.friend-add {
-    position: absolute;
-    width: 500px;
-}
-
-.friend-add-button{
-    width: 101px;
-    height: 70px;
-    border-radius: 30px;
-    top: 86px;
-    left: 431px;
-    border-radius: 40px;
-    position: absolute;
-    display: flex;
-    box-shadow: var(--box-shadow);
-    border: none;
-    cursor: pointer;
-    font-family: var(--font-main);
-    font-size: var(--font-very-small);
-    transition: background 0.3s ease;
-    background: var(--gradient-soda);
-    justify-content: center;
-    align-items: center;
-}
-
-.friend-add-warning{
-    width: 264px;
-    height: 27px;
-    top: 175px;
-    left: 40px;
-    position: absolute;
-    font-size: var(--font-very-small);
-    color: var(--warning)
+    overflow-y: auto;
 }
 
 /* ==================== 스크롤 버튼 스타일 ==================== */
-
 .scroll-button {
     position: absolute;
-    top: 50%; 
+    top: 50%;
     right: 0;
     transform: translateY(-50%);
-    
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -607,17 +399,32 @@ a {
     box-shadow: var(--box-shadow);
     border: none;
     cursor: pointer;
-    
     font-size: var(--font-medium);
-    line-height: 40px; 
+    line-height: 40px;
     text-align: center;
     font-weight: bold;
-    color: var(--blue-text); 
+    color: var(--blue-text);
     transition: background 0.2s;
     z-index: 5;
 }
-
 .scroll-button:hover {
     background-color: var(--star-blue);
-    color: white; 
+    color: white;
+}
+        .horizontal-scroll-section {
+    position: relative;
+    padding-right: 50px;
+    width: 1190px;
+    max-width: calc(100vw - 78px * 2 - 50px);
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+.bookshelf-row {
+    display: flex;
+    gap: 40px;
+    position: relative;
+    left: 0;
+    transition: left 0.3s ease-out;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
 }
