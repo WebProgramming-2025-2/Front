@@ -271,6 +271,18 @@ a {
     text-shadow: var(--text-shadow);
 }
 
+.middle_menu .active, .active-diary {
+    transform: scale(1.15);
+    text-shadow: var(--text-shadow);
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+.active-diary {
+    font-size: var(--font-medium-large);
+    background-color: var(--star-blue-light);
+}
+
 .right_profile img {
     width: 50px;
     height: 50px;
@@ -364,7 +376,6 @@ a {
     position: absolute; 
     top: 130px; 
     right: 78px; 
-    
     z-index: 10; 
 }
 
@@ -439,7 +450,7 @@ a {
     background-color: var(--star-blue);
     color: white;
 }
-        .horizontal-scroll-section {
+.horizontal-scroll-section {
     position: relative;
     padding-right: 50px;
     width: 1190px;
