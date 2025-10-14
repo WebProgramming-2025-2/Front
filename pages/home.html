@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>책장 화면 - Mogle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        /* ==================== 책장 카드 ==================== */
+        .book-card {
+            position: relative;
+            flex-shrink: 0;
+            width: 215px;
+            height: 215px;
+            border-radius: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 15px;
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .book-title {
+            font-size: var(--font-very-small);
+            color: #000;
+            margin: 0;
+            padding-left: 5px;
+        }
+
+        .middle_menu .active {
+            background-color: var(--star-blue);
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+
+        /* ==================== 팝업 스타일 ==================== */
+        .add-book-popup {
+            position: absolute;
+            top: 195px;
+            /* 위치 조정 */
+            left: 510px;
+            /* right -> left 로 변경 */
+            width: 580px;
+            background-color: var(--background);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            display: none;
+            /* JS가 flex로 변경하여 표시 */
+            flex-direction: column;
+            gap: 25px;
+            z-index: 50;
+            box-sizing: border-box;
+        }
+
+        .add-book-popup h2 {
+            font-size: var(--font-medium-small);
+            margin: 0;
+        }
+
+        /* 1. 책장 이름 입력란 스타일 수정 */
+        .modal-input {
+            width: 100%;
+            height: 60px;
+            border-radius: 30px;
+            background-color: var(--background);
+            box-shadow: var(--box-shadow);
+            border: none;
+            padding: 0 25px;
+            box-sizing: border-box;
+            font-family: var(--font-main);
+            font-size: var(--font-very-small);
+        }
+
+        .modal-input::placeholder {
+            color: var(--shadow-gray);
+        }
+
+        .friend-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-height: 180px;
+            overflow-y: auto;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+            padding: 20px;
+        }
+
+        .friend-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .friend-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: var(--font-very-small);
+        }
+
+        .friend-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .friend-add-btn, .friend-remove-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--text-gray);
+            background-color: #f0f0f0;
+            transition: background-color 0.2s;
+        }
+
+        .friend-remove-btn {
+            background-color: var(--clover-green);
+            color: white;
+        }
+
+        .friend-add-btn:hover {
+            background-color: #e0e0e0;
+        }
+
+        .friend-remove-btn:hover {
+            opacity: 0.8;
+        }
+
+        .create-btn-container {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 10px;
+        }
+
+        /* 3. 생성 버튼 스타일 수정 */
+        .btn-create {
+            padding: 12px 30px;
+            border-radius: 25px;
+            /* 더 둥글게 */
+            border: none;
+            background: var(--background); /* 기본 배경을 흰색(var(--background))으로 변경 */
+            transition: background 0.3s ease, transform 0.2s; /* 배경색 전환 효과 추가 */
+            box-shadow: var(--box-shadow);
+            color: black;
+            font-family: var(--font-main);
+            font-size: var(--font-very-small);
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn-create:hover {
+        background: var(--gradient-soda); /* 마우스를 올렸을 때만 그라데이션 적용 */
+        transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+    <div class="background-decorations">
+        <div class="bg-star"></div>
+        <div class="bg-clover"></div>
+        <div class="bg-sparkle"></div>
+    </div>
+
+    <div class="nav">
+        <div class="left_menu">
+            <h2><a href="#">Mogle</a></h2>
+            <p class="subtitle"><b>모</b>여서 쓰는 <b>글</b></p>
+        </div>
+
+        <div class="middle_menu">
+            <p><a href="#" class="active active-home">책장</a></p>
+            <p><a href="#">친구 관리</a></p>
+            <p><a href="#">마이페이지</a></p>
+        </div>
+
+        <div class="right_profile">
+            <img src="../content/user-profile.png" alt="profile">
+        </div>
+    </div>
+
+    <main class="main-content-grid">
+        <div class="search-area">
+            <button class="add-button btn-gradient soda"><a href="home-popup.html">+</a></button>
+            <div class="search-box-container">
+                <input type="text" placeholder="책장 검색" class="input-basic search-input">
+            </div>
+        </div>
+
+        <section class="favorite-bookshelves">
+            <h2 class="section-title">즐겨찾기한 책장</h2>
+            <div class="horizontal-scroll-section" data-scroll-id="1">
+                
+                <div class="bookshelf-row">
+                    <div class="book-card favorite">
+                        <p class="book-title">Best Friend</p>
+                        <a href="#" class="star-icon star-filled"><span></span></a>
+                    </div>
+                    <div class="book-card favorite">
+                        <p class="book-title">여행 친구</p>
+                        <a href="#" class="star-icon star-filled"><span></span></a>
+                    </div>
+                    <div class="book-card favorite">
+                        <p class="book-title">덕질 메이트</p>
+                        <a href="#" class="star-icon star-filled"><span></span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="all-bookshelves">
+            <h2 class="section-title">모든 책장</h2>
+            <div class="horizontal-scroll-section" data-scroll-id="2">
+                <button class="scroll-button prev-button">&lt;</button>
+                <div class="bookshelf-row">
+                    <div class="book-card">
+                        <p class="book-title">2025 과동기</p><a href="#" class="star-icon star-empty"><span></span></a>
+                    </div>
+                    <div class="book-card">
+                        <p class="book-title">스터디 그룹</p><a href="#" class="star-icon star-empty"><span></span></a>
+                    </div>
+                    <div class="book-card">
+                        <p class="book-title">취미</p><a href="#" class="star-icon star-empty"><span></span></a>
+                    </div>
+                    <div class="book-card">
+                        <p class="book-title">영화</p><a href="#" class="star-icon star-empty"><span></span></a>
+                    </div>
+                    <div class="book-card">
+                        <p class="book-title">개발</p><a href="#" class="star-icon star-empty"><span></span></a>
+                    </div>
+                    <div class="book-card">
+                        <p class="book-title">독서 모임</p><a href="#" class="star-icon star-empty"><span></span></a>
+                    </div>
+                    <div class="book-card">
+                        <p class="book-title">뜨개질</p><a href="#" class="star-icon star-empty"><span></span></a>
+                    </div>
+                </div>
+                <button class="scroll-button next-button">&gt;</button>
+            </div>
+        </section>
+    </main>
+
+    
+</body>
+</html>
