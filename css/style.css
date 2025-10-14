@@ -79,7 +79,7 @@ a {
     
     transform: rotate(-15deg);
     opacity: 1; 
-    background-image: url("../images/배경별.png"); 
+    background-image: url("../content/배경별.png"); 
     background-repeat: no-repeat; 
     background-size: contain;
 }
@@ -93,7 +93,7 @@ a {
     top: 30%; 
     
     opacity: 1; 
-    background-image: url("../images/배경클로버.png");
+    background-image: url("../content/배경클로버.png");
     background-repeat: no-repeat;
     background-size: contain;
 }
@@ -107,7 +107,7 @@ a {
     top: 40%; 
     
     opacity: 1;
-    background-image: url("../images/배경반짝별.png");
+    background-image: url("../content/배경반짝별.png");
     background-repeat: no-repeat;
     background-size: contain;
 }
@@ -391,11 +391,11 @@ a {
 }
 
 .star-filled span {
-    background-image: url("../images/별.png");
+    background-image: url("../content/별.png");
 }
 
 .star-empty span {
-    background-image: url("../images/빈 별.png");
+    background-image: url("../content/빈 별.png");
 }
 
 .star-icon:hover span {
