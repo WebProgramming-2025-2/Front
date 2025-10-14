@@ -21,8 +21,8 @@
     --blue-text: #9FD2D0;
     
     /* 그라데이션 */
-    --gradient-soda: linear-gradient(to right, #DAFFFD, #EEFFE1);
-    --gradient-cloud: linear-gradient(to right, #EEFFE1, #FFE5F5);
+    --gradient-soda: linear-gradient(to bottom, #DAFFFD, #EEFFE1);
+    --gradient-cloud: linear-gradient(to bottom, #EEFFE1, #FFE5F5);
     
     /* 폰트 패밀리 */
     --font-main: 'NoonnuBasicGothic', sans-serif;
@@ -40,7 +40,7 @@
     --font-super-tiny: 12px;
     
     /* 그림자 */
-    --text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    --text-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
     --box-shadow: 0 4px 4px 0 var(--shadow-gray);
 }
 
@@ -48,8 +48,6 @@
 body {
     font-family: var(--font-main);
     background-color: var(--background);
-    width: 1280px;
-    height: 832px;
     position: relative;
     overflow: hidden;
 }
@@ -59,9 +57,10 @@ a {
     text-decoration: none;
 }
 
-/* ==================== 배경 효과 ==================== */
+/* ==================== 배경 효과 (수정) ==================== */
+
 .background-decorations {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -72,37 +71,48 @@ a {
 
 .bg-star {
     position: absolute;
-    width: 783px;
-    height: 574px;
-    left: 757px;
-    top: -90px;
+    width: 60%; 
+    height: 60%;
+    
+    left: 56%; 
+    top: -9%; 
+    
     transform: rotate(-15deg);
-    opacity: 1;
-    background-image: url("../images/배경별.png");
+    opacity: 1; 
+    background-image: url("../images/배경별.png"); 
+    background-repeat: no-repeat; 
     background-size: contain;
 }
 
 .bg-clover {
     position: absolute;
-    width: 704px;
-    height: 698px;
-    left: 0px;
-    top: 0px;
-    opacity: 1;
+    width: 50%; 
+    height: 80%;
+    
+    left: 0%; 
+    top: 30%; 
+    
+    opacity: 1; 
     background-image: url("../images/배경클로버.png");
+    background-repeat: no-repeat;
     background-size: contain;
 }
 
 .bg-sparkle {
     position: absolute;
-    width: 547px;
-    height: 512px;
-    left: 990px;
-    top: 193px;
+    width: 40%; 
+    height: 60%;
+    
+    left: 65%; 
+    top: 40%; 
+    
     opacity: 1;
     background-image: url("../images/배경반짝별.png");
+    background-repeat: no-repeat;
     background-size: contain;
 }
+
+
 
 /* ==================== 텍스트 스타일 ==================== */
 .text-shadow {
@@ -136,14 +146,20 @@ a {
     -webkit-text-fill-color: var(--blue-text);
 }
 
-.big-title {
+.big-title, .section-title {
     font-family: "NoonnuBasicGothic", sans-serif;
-    font-size: var(--font-medium);
+    font-size: var(--font-medium-large); 
     text-align: left;
-    margin-top: 85px;
-    padding-left: 78px;
+    margin: 0; 
+    padding: 0; 
+    margin-bottom:15px;
 }
 
+.underline {
+    text-decoration: underline wavy;
+    text-decoration-thickness: 15%;
+    text-underline-offset: 20%;
+}
 /* ==================== 기본 입력 창 ==================== */
 .input-basic {
     width: 451px;
@@ -163,16 +179,15 @@ a {
 
 /* ==================== 버튼 스타일 ==================== */
 .btn-gradient {
-    width: 451px;
-    height: 70px;
-    border-radius: 30px;
+    width: 466px;
+    height: 85px;
+    border-radius: 40px;
     background-color: var(--background);
     box-shadow: var(--box-shadow);
     border: none;
     cursor: pointer;
     font-family: var(--font-main);
-    font-size: var(--font-very-small);
-    transition: background 0.3s ease;
+    transition: var(--background) 0.3s ease;
 }
 
 .btn-gradient.soda:hover {
@@ -244,10 +259,10 @@ a {
     font-size: 25px;
 }
 
-.active {
-    background-color: var(--star-blue);
-    padding: 10px 20px;
-    border-radius: 8px;
+.middle_menu a:hover:not(.active) {
+    font-weight: bold;
+    transform: scale(1.15);
+    text-shadow: var(--text-shadow);
 }
 
 .right_profile img {
@@ -256,6 +271,7 @@ a {
     border-radius: 50%;
     object-fit: cover;
 }
+
 
 /* ==================== 미디어 쿼리 ==================== */
 @media (max-width: 1000px) {
@@ -268,4 +284,147 @@ a {
     .middle_menu {
         display: none;
     }
+}
+
+@media (max-width: 960px) {
+    .add-button.btn-gradient,
+    .search-box-container {
+        display: none;
+    }
+}
+
+
+/* ==================== 버튼 스타일 활용 ==================== */
+
+.add-button.btn-gradient {
+    width: 60px; 
+    height: 60px;
+    border-radius: 50%; 
+    padding: 0;
+    margin-right: 20px;
+    font-size: var(--font-medium); 
+    line-height: 60px; 
+    text-align: center;
+    
+}
+
+.search-box-container {
+    position: relative;
+    width: 451px; 
+}
+
+.search-input {
+    width: 100%; 
+    box-sizing: border-box; 
+    padding-right: 60px; 
+}
+
+.search-box-container::after {
+    position: absolute;
+    top: 50%;
+    right: 25px;
+    transform: translateY(-50%);
+    font-size: var(--font-very-small);
+    color: var(--shadow-gray);
+    pointer-events: none; 
+}
+
+.search-area {
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center;
+    position: absolute; 
+    top: 130px; 
+    right: 78px; 
+    
+    z-index: 10; 
+}
+
+/* ==================== 별 아이콘 ==================== */
+
+.star-icon {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    width: 28px;
+    height: 28px;
+    display: block;
+    cursor: pointer;
+}
+
+.star-icon span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: filter 0.3s ease;
+}
+
+.star-filled span {
+    background-image: url("../images/별.png");
+}
+
+.star-empty span {
+    background-image: url("../images/빈 별.png");
+}
+
+.star-icon:hover span {
+    filter: brightness(1.1);
+}
+
+/* ==================== 메인 컨텐츠 그리드 배치 ==================== */
+.main-content-grid {
+    height: calc(100vh - 96px);
+    padding: 30px 78px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    gap: 30px;
+    overflow-y: auto;
+}
+
+/* ==================== 스크롤 버튼 스타일 ==================== */
+.scroll-button {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--background);
+    box-shadow: var(--box-shadow);
+    border: none;
+    cursor: pointer;
+    font-size: var(--font-medium);
+    line-height: 40px;
+    text-align: center;
+    font-weight: bold;
+    color: var(--blue-text);
+    transition: background 0.2s;
+    z-index: 5;
+}
+.scroll-button:hover {
+    background-color: var(--star-blue);
+    color: white;
+}
+        .horizontal-scroll-section {
+    position: relative;
+    padding-right: 50px;
+    width: 1190px;
+    max-width: calc(100vw - 78px * 2 - 50px);
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+.bookshelf-row {
+    display: flex;
+    gap: 40px;
+    position: relative;
+    left: 0;
+    transition: left 0.3s ease-out;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
 }
