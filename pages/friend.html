@@ -31,6 +31,8 @@
 
             /* 스크롤 핵심 속성 */
             overflow-y: auto; /* 세로 내용이 넘칠 경우에만 스크롤바를 보여줌 */
+            scrollbar-width: none;
+            -ms-overflow-style: none;
         }
 
         .friend-list {
@@ -46,92 +48,93 @@
         .friend-item {
             position: relative;
 
-            width: 100%;
-            height: 163px;
+            width: 90%;
+            height: 130px;
+            left: 50px;
             border-radius: 30px;
             background-color: white;
-        box-shadow: var(--box-shadow);
+            box-shadow: var(--box-shadow);
         }
 
-    .friend-info{
-        position: absolute;
-        display: flex;
-        flex-direction: column;
+        .friend-info{
+            position: absolute;
+            display: flex;
+            flex-direction: column;
 
-        width: 751px;
-        height: 115px;
-        top: 24px;
-        left: 163px;
-    }
+            width: 751px;
+            height: 115px;
+            top: 24px;
+            left: 163px;
+        }
 
-    .friend-name-container{
-        position: absolute;
-        display: flex;
+        .friend-name-container{
+            position: absolute;
+            display: flex;
 
-        width: 106;
-        height: 56;
-        top: 5px;
-    }
+            width: 106px;
+            height: 56px;
+            top: 10px;
+        }
 
-    .friend-desc-container{
-        position: absolute;
-        display: flex;
+        .friend-desc-container{
+            position: absolute;
+            display: flex;
 
-        width: 506;
-        height: 61;
-        top: 64px;
-    }
+            width: 506px;
+            height: 61px;
+            top: 55px;
+        }
 
-    .profile-picture{
-        position: absolute;
-        width: 100px;
-        height: 100px;
-        top: 31px;
-        left: 33px;
-        border-radius: 100px;
-        border-width: 3px;
-        border-style: solid;
+        .profile-picture{
+            position: absolute;
+            width: 80px;
+            height: 180px;
+            top: 31px;
+            left: 33px;
+            border-radius: 100px;
+            border-width: 3px;
+            border-style: solid;
+    
+            background-size: cover; /* 이미지가 원을 꽉 채우도록 설정 */
+            background-position: center;
+        }
 
-        background-size: cover; /* 이미지가 원을 꽉 채우도록 설정 */
-        background-position: center;
-    }
+        .friend-item:nth-child(1) .profile-picture {
+            background-image: url("./images/프로필클로버.png");
+            border-color: var(--clover-green);
+        }
+    
+        .friend-item:nth-child(2) .profile-picture {
+            background-image: url("./images/프로필하트.png");
+            border-color: var(--star-blue);
+        }
+    
+        .friend-item:nth-child(3) .profile-picture {
+            background-image: url("./images/프로필발바닥.png");
+            border-color: var(--sparkle-pink);
+        }
 
-    .friend-item:nth-child(1) .profile-picture {
-        background-image: url("./images/프로필클로버.png");
-        border-color: var(--clover-green);
-    }
-
-    .friend-item:nth-child(2) .profile-picture {
-        background-image: url("./images/프로필하트.png");
-        border-color: var(--star-blue);
-    }
-
-    .friend-item:nth-child(3) .profile-picture {
-        background-image: url("./images/프로필발바닥.png");
-        border-color: var(--sparkle-pink);
-    }
-
-    .mood {
-        width: 35px;
-        height: 35px;
-        top: 96px;
-        left: 98px;
-        border-radius: 100px;
-        position: absolute;
-        background-color: white;
-        box-shadow: var(--box-shadow);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+        .mood {
+            width: 35px;
+            height: 35px;
+            top: 80px;
+            left: 80px;
+            border-radius: 100px;
+            position: absolute;
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
     .more-options-btn {
         position: absolute;
     
         width: 40px;
         height: 54px;
-        top: 54px;
-        left: 914px;
+        top: 45px;
+        left: 800px;
 
         background: none;
         border: none;
@@ -198,7 +201,7 @@
     .option-friend-add
     {
         /* 평소에는 숨겨둡니다. */
-        display: flex;
+        display: none;
         z-index: 11;
         position: absolute;
 
@@ -383,3 +386,4 @@
     </main>
 </body>
 </html>
+
