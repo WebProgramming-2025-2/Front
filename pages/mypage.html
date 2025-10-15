@@ -3,326 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyPage</title>
+    <title>마이페이지</title>
     <link rel="stylesheet" href="../css/style.css">
     <style>
-        html, body {
-            height: 100%;
+
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
-        .mypage-container {
-            width: 1176px;
-            height: 622px;
-            margin: 44px auto 0; /* 상단 여백 44px, 좌우 자동 중앙 정렬 */
+        .container {
             display: flex;
-            gap: 26px; /* 왼쪽과 오른쪽 영역 사이 간격 */
+            background: transparent;
+            justify-content: center;
+            overflow: visible;
+            max-width: 1280px;
+            width: 100%;
+            position: relative;
+            margin: 0 auto;
         }
 
-        /* [수정됨] 고정 width를 지우고 flex: 1 과 padding 추가 */
         .left-section {
-            flex: 1; /* 남는 공간을 1의 비율로 차지 */
+            flex: 1;
+            padding: 20px 60px 40px 40px;
+            background: transparent;
+        }
+
+        .profile-section {
             display: flex;
-            flex-direction: column;
-            gap: 42px;
-            padding: 30px 38px; /* 내부 여백으로 위치 조절 */
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-left: 40px;
+            position: relative;
         }
 
         .right-section {
             flex: 1;
-        }
-        
-        /* ==================== 프로필 & 닉네임 ==================== */
-        .profile-nickname-area {
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
+            padding: 0px 40px 40px 60px;
+            background: transparent;
         }
 
-        .profile-image-wrapper {
-            position: relative;
-            width: 200px;
-            height: 200px;
-            background-color: var(--star-blue);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-shrink: 0; /* 크기 고정 */
-            box-shadow: var(--box-shadow);
-        }
-
-        .profile-image-wrapper img {
-            width: 200px;
-            height: auto;
-        }
-
-        .mood-icon {
+        .pencil-icon {
             position: absolute;
-            bottom: 0px;
-            right: 0px;
+            bottom: 0;
+            right: 0;
             width: 65px;
             height: 65px;
             border-radius: 50%;
-            background-color: var(--background);
             display: flex;
+            align-items: center;
             justify-content: center;
-            align-items: center;
-            box-shadow: var(--box-shadow);
-        }
-
-        .mood-icon img {
-            width: 45px;
-            height: auto;
-        }
-        
-        .nickname-wrapper {
-            width: 329px;
-            height: 86px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .nickname-box {
-            width: 309px;
-            height: 67px;
-            background-color: var(--background);
-            border-radius: 30px;
-            box-shadow: var(--box-shadow);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 25px;
-            box-sizing: border-box;
-        }
-
-        .nickname-box .username {
-            font-size: var(--font-medium-small);
-        }
-        
-        .nickname-box .edit-icon {
-            width: 42px; /* 아이콘 크기 예시 */
-            height: 42px;
             cursor: pointer;
         }
 
-        /* ==================== 내 책장 ==================== */
-        .bookshelf-container {
-            width: 100%; /* 부모(left-section) 너비에 꽉 채움 */
-            height: 324px;
-            background-color: var(--background);
-            border-radius: 40px;
-            box-shadow: var(--box-shadow);
-            display: flex;
+        .name-input {
+            flex: 1;
             flex-direction: column;
         }
 
-        .bookshelf-title {
-            width: 100%;
-            height: 71px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: var(--font-medium);
-            flex-shrink: 0;
-        }
-
-        .bookshelf-list {
-            width: 100%;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px; /* 책장 아이템 사이 간격 */
-            padding: 10px 0;
-        }
-
-        .bookshelf-item {
-            width: 95%; /* 부모 너비의 95%를 차지하도록 변경 */
-            max-width: 499px; /* 최대 너비는 유지 */
-            height: 57px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .bookshelf-item-name {
-            flex-grow: 1; /* 이름이 남는 공간을 차지하도록 */
-            height: 57px;
-            display: flex;
-            align-items: center;
-            padding-left: 20px;
+        .name-input label {
             font-size: var(--font-medium-small);
+            margin-bottom: 20px;
+            margin-left: 25px;
+            display: block;
         }
 
-        .bookshelf-item-profiles {
-            width: 176px;
-            height: 57px;
+        .form-group {
+            margin-top: 10px;
+            margin-left: 20px;
+        }
+
+        .input-wrapper {
             display: flex;
             align-items: center;
-            justify-content: flex-end;
-            padding-right: 20px;
-            flex-shrink: 0; /* 프로필 영역은 줄어들지 않음 */
-        }
-        
-        .bookshelf-item-profiles .profile-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            box-sizing: border-box;
+            gap: 15px;
+            margin-bottom: 51px;
         }
 
-        .bookshelf-item-profiles .profile-icon:not(:first-child) {
-            margin-left: -25px; /* 절반 겹치기 */
-        }
-        
-        /* ==================== 캘린더 ==================== */
-        .calendar-container {
-            width: 100%;
-            height: 100%;
-            background-color: var(--background);
-            border-radius: 40px;
-            box-shadow: var(--box-shadow);
-            padding: 28px;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .calendar-header {
-            text-align: center;
+        .input-label {
             font-size: var(--font-medium-small);
-            color: black;
-            padding: 15px 0;
+            min-width: 60px;
         }
 
-        .calendar-grid {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 10px;
-            text-align: center;
-            margin-top: 15px;
-        }
-
-        .calendar-grid div {
-            font-size: var(--font-very-small);
-            color: black;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            height: 55px; /* 각 셀의 높이 */
-        }
-        
-        .calendar-grid .weekday {
-            font-weight: bold;
-            height: auto; /* 요일 셀 높이는 자동 */
-        }
-
-        .date-cell .date-num.warning {
+        .error-message {
             color: var(--warning);
+            font-size: var(--font-tiny);
+            margin-top: -35px;
+            margin-left: 85px;
         }
 
-        .date-cell .star-icon {
-            width: 30px;
-            height: 30px;
-            margin-top: 5px;
+        .email-verify-section {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .email-verify-section input {
+            flex: 1;
+        }
+
+        .verification-status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .status-text {
+            font-size: var(--font-tiny);
+            margin-top: 10px;
+        }
+
+        .mogle-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--font-small);
+            font-weight: 400;
+            margin-top: 50px;
+            margin-bottom: 4px;
+            padding-top: 50px;
+            border-top: 2px solid var(--sparkle-pink);
+        }
+
+        /* 아이콘 팝업 */
+        .icon-modal-static {
+            display: block;
+            position: absolute;
+            height: 264px;
+            background: white;
+            border-radius: 40px;
+            border-top-left-radius: 0;
+            padding: 15px;
+            box-shadow: var(--box-shadow);
+            top: 100%;
+            right: -240%;
+            width: 240%;
+        }
+
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 7px;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .icon-item:hover .icon-circle {
+            transform: scale(1.0);
+            box-shadow: var(--box-shadow);
+        }
+
+        .icon-label {
+            font-size: 15px;
         }
     </style>
 </head>
-
-
-<body>
-    <div class="background-decorations">
-        <div class="bg-star"></div>
-        <div class="bg-clover"></div>
-        <div class="bg-sparkle"></div>
-    </div>
-
-    <div class = "nav">
-            <div class="left_menu">
-                <h2><a href="index.html">Mogle</a></h2>
-                <p class="subtitle"><b>모</b>여서 쓰는 <b>글</b></p>
-            </div>
-            
-            <div class = "middle_menu">
-                <p><a href="pf_home.html">책장</a></p>
-                <p><a href="pf_photo.html">친구 관리</a></p>
-                <p><a href="pf_music.html" class="active">마이페이지</a></p>
-            </div>
-            
-            <div class ="right_profile">
-                <img src="user-profile.png" alt="profile">
-            </div>
-        </div>
-    
-    <div class="mypage-container">
-        <div class="left-section">
-            <div class="profile-nickname-area">
-                <div class="profile-image-wrapper">
-                    <img src="../content/user-profile.png" alt="프로필 별">
-                    <div class="mood-icon">
-                        <img src="../images/무드티콘.png" alt="무드 이모티콘">
-                    </div>
-                </div>
-                <div class="nickname-wrapper">
-                    <div class="nickname-box">
-                        <span class="username">눈송이</span>
-                        <img class="edit-icon" src="../images/닉네임 수정.png" alt="닉네임 수정">
-                    </div>
-                </div>
-            </div>
-            <div class="bookshelf-container">
-                <div class="bookshelf-title">내 책장</div>
-                <div class="bookshelf-list">
-                    <div class="bookshelf-item">
-                        <div class="bookshelf-item-name">2025 과동기</div>
-                        <div class="bookshelf-item-profiles">
-                            <img src="../content/user-profile.png" alt="profile icon" class="profile-icon">
-                            <img src="../content/user-profile.png" alt="profile icon" class="profile-icon">
-                        </div>
-                    </div>
-                    <div class="bookshelf-item">
-                        <div class="bookshelf-item-name">2024-2 솔록스</div>
-                        <div class="bookshelf-item-profiles">
-                             <img src="../content/user-profile.png" alt="profile icon" class="profile-icon">
-                             <img src="../content/user-profile.png" alt="profile icon" class="profile-icon">
-                             <img src="../content/user-profile.png" alt="profile icon" class="profile-icon">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="right-section">
-            <div class="calendar-container">
-                <div class="calendar-header">&lt; 10월 &gt;</div>
-                <div class="calendar-grid">
-                    <div class="weekday">월</div>
-                    <div class="weekday">화</div>
-                    <div class="weekday">수</div>
-                    <div class="weekday">목</div>
-                    <div class="weekday">금</div>
-                    <div class="weekday">토</div>
-                    <div class="weekday">일</div>
-                    <div class="date-cell">
-                        <span class="date-num">1</span>
-                        <img src="../images/별.png" alt="별 아이콘" class="star-icon">
-                    </div>
-                    <div class="date-cell"><span class="date-num">2</span></div>
-                    <div class="date-cell"><span class="date-num warning">3</span></div>
-                    <div class="date-cell">
-                        <span class="date-num warning">4</span>
-                        <img src="../images/별.png" alt="별 아이콘" class="star-icon">
-                    </div>
-                    <div class="date-cell"><span class="date-num"></span></div>
-                    <div class="date-cell"><span class="date-num"></span></div>
-                    <div class="date-cell"><span class="date-num"></span></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
