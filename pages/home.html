@@ -8,9 +8,9 @@
 
     <style>
         html, body {
-            height: 100%;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
 
 
@@ -23,8 +23,7 @@
             border-radius: 20px;
             background-color: #fff;
             box-shadow: var(--box-shadow);
-
-
+            transform: translateY(-3px); 
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
@@ -162,7 +161,7 @@
             /* 더 둥글게 */
             border: none;
             background: var(--background); /* 기본 배경을 흰색(var(--background))으로 변경 */
-            transition: background 0.3s ease, transform 0.2s; /* 배경색 전환 효과 추가 */
+            transition: var(--background) 0.3s ease, transform 0.2s;
             box-shadow: var(--box-shadow);
             color: black;
             font-family: var(--font-main);
@@ -210,7 +209,7 @@
         </div>
 
         <section class="favorite-bookshelves">
-            <h2 class="section-title">즐겨찾기한 책장</h2>
+            <h2 class="section-title" style="margin-top:50px">즐겨찾기한 책장</h2>
             <div class="horizontal-scroll-section" data-scroll-id="1">
                 
                 <div class="bookshelf-row">
