@@ -24,16 +24,16 @@
             margin: 0 auto;
         }
 
-        .left-section {
+        .left {
             flex: 1;
-            padding: 20px 60px 40px 40px;
+            padding: 50px;
             background: transparent;
         }
 
-        .profile-section {
+        .profile {
             display: flex;
             align-items: center;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
         }
 
         .profile-image {
@@ -43,17 +43,9 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            margin-left: 40px;
-            position: relative;
         }
 
-        .right-section {
-            flex: 1;
-            padding: 0px 40px 40px 60px;
-            background: transparent;
-        }
-
-        .pencil-icon {
+        .emotion-icon {
             position: absolute;
             bottom: 0;
             right: 0;
@@ -64,128 +56,333 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
+            font-size: var(--font-large);
         }
 
-        .name-input {
-            flex: 1;
+        .name {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 25px;
+            left: 10px;
+            bottom: 50px;
+        }
+
+        .edit-icon {
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .bookcase {
+            display: flex;
+            position: relative;
+            flex-direction: column;
+            width: 530px;
+            height: 325px;
+            border-radius: 30px;
+            background-color: var(--background);
+            box-shadow: var(--box-shadow);
+            padding: 20px 25px;
+        }
+
+        .bookcase-title {
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            border-bottom: 3px dashed var(--clover-green);
+            margin-bottom: 20px;
+        }
+
+        .bookcase-list {
+            width: 100%;
+            display: flex;
+            gap: 15px;
             flex-direction: column;
         }
 
-        .name-input label {
-            font-size: var(--font-medium-small);
-            margin-bottom: 20px;
-            margin-left: 25px;
-            display: block;
+        .book-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
         }
 
-        .form-group {
-            margin-top: 10px;
-            margin-left: 20px;
-        }
-
-        .input-wrapper {
+        .profile-stack {
+            position: relative;
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 51px;
+            width: 180px; 
+            height: 60px;
         }
 
-        .input-label {
-            font-size: var(--font-medium-small);
-            min-width: 60px;
+        .stacked-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;    
+            position: absolute;
+            top: 0;
         }
 
-        .error-message {
-            color: var(--warning);
-            font-size: var(--font-tiny);
-            margin-top: -35px;
-            margin-left: 85px;
+        .stacked-icon:nth-child(1) {
+            left: 0px;
+            z-index: 3;
         }
 
-        .email-verify-section {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            margin-top: 50px;
+        .stacked-icon:nth-child(2) {
+            left: 25px;
+            z-index: 2;
         }
 
-        .email-verify-section input {
+        .stacked-icon:nth-child(3) {
+            left: 50px;
+            z-index: 1;
+        }
+
+
+        .right{
             flex: 1;
+            padding: 50px;
+            background: transparent;
         }
 
-        .verification-status {
+        .calendar {
             display: flex;
+            position: relative;
+            flex-direction: column;
             align-items: center;
-            gap: 10px;
-            margin-top: 10px;
+            width: 530px;
+            height: 565px;
+            border-radius: 30px;
+            background-color: var(--background);
+            box-shadow: var(--box-shadow);
+            padding: 20px;
         }
 
-        .status-text {
-            font-size: var(--font-tiny);
-            margin-top: 10px;
-        }
-
-        .mogle-link {
+        .calendar-month {
+            height: 70px;
             display: flex;
-            align-items: center;
             justify-content: center;
-            font-size: var(--font-small);
-            font-weight: 400;
-            margin-top: 50px;
-            margin-bottom: 4px;
-            padding-top: 50px;
-            border-top: 2px solid var(--sparkle-pink);
+            align-items: center;
+            width: 100%;
+            margin-bottom: 15px;
         }
 
-        /* 아이콘 팝업 */
-        .icon-modal-static {
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr); 
+            width: 100%;
+            gap: 10px;
+        }
+
+        .grid-cell {
+            text-align: center;
+            padding: 5px 0;
+        }
+
+        .weekday {
+            font-size: var(--font-very-small);
+            border-bottom: 2px solid var(--star-blue);
+        }
+
+        .date {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 60px;
+            font-size: var(--font-very-small);
+            border-bottom: 1px solid var(--shadow-gray);
+        }
+
+        .date.empty {
+            border-bottom: none;
+        }
+        .date.today span:first-child {
+            color: var(--warning);
+            font-weight: bold;
+        }
+        .visited-star {
+            width: 30px;
+            height: 30px;
+        }
+
+        .emotion-modal-static {
             display: block;
             position: absolute;
-            height: 264px;
-            background: white;
+            background: var(--background);
             border-radius: 40px;
             border-top-left-radius: 0;
-            padding: 15px;
             box-shadow: var(--box-shadow);
-            top: 100%;
-            right: -240%;
-            width: 240%;
+            width: auto;
+            height: 70px;
+            top: 110%;
+            left: 80%;
+            transform: translateY(-50%);
+            margin-left: 20px;
+            z-index: 10;
         }
 
-        .icon-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        .icon-item {
+        .emotion-grid {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            cursor: pointer;
-            transition: all 0.3s;
+            gap: 10px;
         }
 
-        .icon-circle {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
+        .emotion-position {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 7px;
-            transition: all 0.3s;
-            border: 2px solid transparent;
+            font-size: 45px;
+            cursor: pointer;
+            transition: transform 0.2s;
         }
 
-        .icon-item:hover .icon-circle {
-            transform: scale(1.0);
-            box-shadow: var(--box-shadow);
+        .emotion-position:hover {
+            transform: scale(1.2);
         }
 
-        .icon-label {
-            font-size: 15px;
-        }
     </style>
 </head>
+
+
+<body>
+    <div class="background-decorations">
+        <div class="bg-star"></div>
+        <div class="bg-clover"></div>
+        <div class="bg-sparkle"></div>
+    </div>
+    <div class="nav">
+        <div class="left_menu">
+            <h2><a href="#">Mogle</a></h2>
+            <p class="subtitle"><b>모</b>여서 쓰는 <b>글</b></p>
+        </div>
+        <div class="middle_menu">
+            <p><a href="#">책장</a></p>
+            <p><a href="#">친구 관리</a></p>
+            <p><a href="#">마이페이지</a></p>
+        </div>
+        <div class="right_profile">
+            <img src="../content/user-profile.png" alt="profile">
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="left">
+            <div class="profile">
+                <div class="profile-image">
+                    <img src="../content/user-profile.png" style="width: 200px;" alt="사용자 프로필">
+                    <div class="emotion-icon">😆</div>
+                    <div class="emotion-modal-static">
+                        <div class="emotion-grid">
+                            <div class="emotion-position">😆</div>
+                            <div class="emotion-position">😍</div>
+                            <div class="emotion-position">🙂</div>
+                            <div class="emotion-position">😥</div>
+                            <div class="emotion-position">🥱</div>
+                            <div class="emotion-position">😫</div>
+                            <div class="emotion-position">😖</div>
+                            <div class="emotion-position">😰</div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="name input-basic" style="width: 305px;">
+                    <span class="text-medium-small font-main">눈송이</span>
+                    <div class="edit-icon">
+                        <img src="../content/닉네임 수정 버튼.png" alt="연필">
+                    </div>
+                </div>
+            </div>
+
+            <div class="bookcase">
+                <div class="bookcase-title">
+                    <span class="text-medium font-main">내 책장</span>
+                </div>
+                <div class="bookcase-list">
+                    <div class="book-item">
+                        <span class="text-medium-small font-main">2025 과동기</span>
+                        <div class="profile-stack">
+                            <img src="../content/clover-user-profile.png" alt="클로버 프로필" class="stacked-icon">
+                            <img src="../content/heart-user-profile.png" alt="하트 프로필" class="stacked-icon">
+                        </div>
+                    </div>
+                    <div class="book-item">
+                        <span class="text-medium-small font-main">2025 웹프로그래밍</span>
+                        <div class="profile-stack">
+                            <img src="../content/paw-user-profile.png" alt="발바닥 프로필" class="stacked-icon">
+                            <img src="../content/sparkle-user-profile.png" alt="반짝 프로필" class="stacked-icon">
+                            <img src="../content/heart-user-profile.png" alt="하트 프로필" class="stacked-icon">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="right">
+            <div class="calendar">
+
+                <div class="calendar-month">
+                    <span class="text-medium-small">&lt; 10월 &gt;</span>
+                </div>
+
+                <div class="calendar-grid">
+                    <div class="grid-cell weekday">월</div>
+                    <div class="grid-cell weekday">화</div>
+                    <div class="grid-cell weekday">수</div>
+                    <div class="grid-cell weekday">목</div>
+                    <div class="grid-cell weekday">금</div>
+                    <div class="grid-cell weekday">토</div>
+                    <div class="grid-cell weekday">일</div>
+
+                    <div class="grid-cell date empty"></div>
+                    <div class="grid-cell date empty"></div>
+                    <div class="grid-cell date">
+                        <span>1</span>
+                        <img src="../content/별.png" alt="별" class="visited-star">
+                    </div>
+                    <div class="grid-cell date"><span>2</span></div>
+                    <div class="grid-cell date"><span>3</span></div>
+                    <div class="grid-cell date">
+                        <span>4</span>
+                        <img src="../content/별.png" alt="별" class="visited-star">
+                    </div>
+                    <div class="grid-cell date"><span>5</span></div>
+                    <div class="grid-cell date"><span>6</span></div>
+                    <div class="grid-cell date"><span>7</span></div>
+                    <div class="grid-cell date"><span>8</span></div>
+                    <div class="grid-cell date"><span>9</span></div>
+                    <div class="grid-cell date"><span>10</span></div>
+                    <div class="grid-cell date"><span>11</span></div>
+                    <div class="grid-cell date"><span>12</span></div>
+                    <div class="grid-cell date"><span>13</span></div>
+                    <div class="grid-cell date"><span>14</span></div>
+                    <div class="grid-cell date"><span>15</span></div>
+                    <div class="grid-cell date today"><span>16</span></div>
+                    <div class="grid-cell date"><span>17</span></div>
+                    <div class="grid-cell date"><span>18</span></div>
+                    <div class="grid-cell date"><span>19</span></div>
+                    <div class="grid-cell date"><span>20</span></div>
+                    <div class="grid-cell date"><span>21</span></div>
+                    <div class="grid-cell date"><span>22</span></div>
+                    <div class="grid-cell date"><span>23</span></div>
+                    <div class="grid-cell date"><span>24</span></div>
+                    <div class="grid-cell date"><span>25</span></div>
+                    <div class="grid-cell date"><span>26</span></div>
+                    <div class="grid-cell date"><span>27</span></div>
+                    <div class="grid-cell date"><span>28</span></div>
+                    <div class="grid-cell date"><span>29</span></div>
+                    <div class="grid-cell date"><span>30</span></div>
+                    <div class="grid-cell date"><span>31</span></div>
+                    <div class="grid-cell date empty"></div>
+                    <div class="grid-cell date empty"></div>
+            </div>
+        </div>
+    </div>
+
+</body>
