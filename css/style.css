@@ -432,7 +432,7 @@ a {
     text-align: center;
     font-weight: bold;
     color: var(--blue-text);
-    transition: background 0.2s;
+    transition: var(--background) 0.2s;
     z-index: 5;
 }
 .scroll-button:hover {

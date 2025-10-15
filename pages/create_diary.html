@@ -23,62 +23,33 @@
             align-items: center;
             gap: 50px;
         }
-        
-        .page-title {
-            width: 654px;
-            font-size: var(--font-medium-large);
-            color: var(--shadow-gray);
-            margin-top:10px;
+
+        .middle_menu {
+            justify-content: flex-start;
+            padding-left: 80px;
+            gap: 8px;
+        }
+        .middle_menu input {
+            font-family: var(--font-main);
+            font-size: var(--font-medium);
+            color: black;
+            background: transparent;
             border: none;
             outline: none;
-            background: transparent;
-            font-family: var(--font-main);
+            padding: 0;
+            line-height: 1;
+            cursor: text;
+            width: 425px;
         }
 
-        .page-title::placeholder {
-            color: var(--shadow-gray);
+        .middle_menu input::placeholder {
+            color: black;
         }
 
-
-        .profile-icon {
-            position: relative;
-            width: 100px;
-            height: 60px;
-            margin-bottom: 5px;
-        }
-
-        .icon-circle {
-            width: 70px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s;
-            position: absolute;
-            overflow: hidden;
-        }
-
-        .icon-circle img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .icon-circle:first-child {
-            top: 0;
-            left: 0;
-            z-index: 2;
-        }
-
-        .icon-circle:last-child {
-            top: 0;
-            left: 35px;
-            z-index: 1;
-        }
-
-        .icon-circle:hover {
-            transform: scale(1.02);
+        .star-icon {
+            position: static;
+            width: 40px;
+            height: 40px;
         }
 
         .container {
@@ -101,7 +72,7 @@
             height: 550px;
             width: 460px;
             aspect-ratio: 0.75;
-            background: url('../images/테마 4.png');
+            background: url('../content/cover4.png');
             background-size: cover;
             background-position: center;
             border-radius: 30px;
@@ -152,17 +123,17 @@
             <p class="subtitle"><b>모</b>여서 쓰는 <b>글</b></p>
         </div>
         <!-- 나중에 css 머지 하면 수정 -->
-        <input type="text" class="page-title" placeholder="다이어리의 이름을 작성하세요.">
-        <div class="profile-icon">
-            <div class="icon-circle">
-                <img src="../images/클로버 프로필 사진.png" alt="Profile 1" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'clover\'></div>'">
-            </div>
-            <div class="icon-circle">
-                <img src="../images/별 프로필 사진.png" alt="Profile 2" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'clover\'></div>'">
+        <div class="middle_menu">
+            <div class="title-with-star">
+                <p><input type="text" placeholder="다이어리의 이름을 작성하세요."></p>
+                <img src="../content/별.png" class="star-icon">
             </div>
         </div>
+        <div class="multi-profile">
+            <img src="../content/clover-user-profile.png">
+            <img src="../content/user-profile.png" alt="profile">
+        </div>
     </div>
-
     <div class="container">
         <div class="left-section">
             <div class="notebook-card">
@@ -172,22 +143,22 @@
         <div class="right-section">
             <div class="theme-grid">
                 <div class="theme-card">
-                    <img src="../images/테마 1.png" alt="테마 1" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
+                    <img src="../content/cover1.png" alt="테마 1" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
                 </div>
                 <div class="theme-card">
-                    <img src="../images/테마 2.png" alt="테마 2" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
+                    <img src="../content/cover2.png" alt="테마 2" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
                 </div>
                 <div class="theme-card">
-                    <img src="../images/테마 3.png" alt="테마 3" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
+                    <img src="../content/cover3.png" alt="테마 3" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
                 </div>
                 <div class="theme-card">
-                    <img src="../images/테마 4.png" alt="테마 4" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
+                    <img src="../content/cover4.png" alt="테마 4" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
                 </div>
                 <div class="theme-card">
-                    <img src="../images/테마 5.png" alt="테마 5" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
+                    <img src="../content/cover5.png" alt="테마 5" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
                 </div>
                 <div class="theme-card">
-                    <img src="../images/테마 6.png" alt="테마 6" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
+                    <img src="../content/cover6.png" alt="테마 6" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
                 </div>
             </div>
 
