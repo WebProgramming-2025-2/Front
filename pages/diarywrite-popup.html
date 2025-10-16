@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>다이어리 목록 화면 - Mogle</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .middle_menu {
+            justify-content: flex-start;
+            padding-left: 80px;
+            gap: 8px;
+        }
+    
+        .star-icon {
+            position: static;
+            width: 50px;
+            height: 50px;
+        }
+
+
+/* ==================== 카드 배치 및 스타일 ==================== */
+
+.diary-container {
+    display: flex;
+    justify-content: center; 
+    gap: 50px; 
+    padding-top: 50px;
+}
+
+.diary-card{
+    position: relative;
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: var(--box-shadow);
+    flex: 1; 
+    height: 705px;
+    padding: 30px; 
+    box-sizing: border-box; 
+}
+
+.diary-textarea {
+    width: 100%;
+    height: 100%;
+    border: none;
+    resize: none; 
+    font-family: var(--font-main);
+    font-size: var(--font-medium-small); 
+    background-color: transparent;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.card-main-title {
+    margin-top: 0;
+    margin-bottom: 10px; /* 날짜와의 간격 */
+    text-align: center; /* 텍스트 자체를 중앙 정렬 */
+}
+
+
+.card-date {
+    margin-left: 10px; /* 날짜와의 간격 */
+    text-align: left; /* 텍스트 자체를 중앙 정렬 */
+}
+
+.side-arrow-left {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+    border: none;
+    background-color: var(--sparkle-pink); 
+    width: 50px;
+    height: 100px;
+    border-radius: 0 60px 60px 0; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-text-fill-color: white;
+    font-size: var(--font-medium-small);
+    cursor: pointer;
+    z-index: 5;
+    padding: 0;
+    line-height: 1; 
+}
+
+.side-arrow-left:hover {
+    background-color: var(--sparkle-pink-light);       
+}
+
+.sticker {
+    position: relative;
+    border-radius: 20px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background-color: var(--background);
+    flex: 1; 
+    height: 705px;
+    padding: 30px; 
+    box-sizing: border-box; 
+    border: 1px solid var(--sparkle-pink);
+    box-shadow: 0 3px 7px 0 var(--sparkle-pink);
+}
+
+.sticker-title {
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.sticker_nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 45px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    border-bottom: 2px solid var(--sparkle-pink);
+    font-family: "NoonnuBasicGothic", sans-serif;
+    border-color: var(--sparkle-pink);
+}
+
+.sticker_menu {
+    display: flex;
+    justify-content: center;
+    gap: 45px;
+    flex-grow: 1;
+}
+
+.sticker_menu p {
+    font-size: var(--font-very-small);
+}
+
+.sticker_menu a:hover:not(.active) {
+    font-weight: bold;
+    transform: scale(1.15);
+    text-shadow: var(--text-shadow);
+}
+
+.sticker_menu .active {
+    transform: scale(1.15);
+    text-shadow: var(--text-shadow);
+    padding: 5px 15px;
+    background-color: var(--sparkle-pink-light);
+    border-radius: 5px;
+}
+
+.text-style {
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.textstyle-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.textstyle-item {
+    font-size: var(--font-very-small);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.wavy-underline {
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: black;
+    text-underline-offset: 4px;
+}
+
+.textstyle-item:hover {
+    transform: scale(1.2);
+}
+
+.sticker-image-container {
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.sticker-image {
+    width: 220px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+    </style>
+</head>
+
+
+<body>
+    <div class="background-decorations">
+        <div class="bg-star"></div>
+        <div class="bg-clover"></div>
+        <div class="bg-sparkle"></div>
+    </div>
+    <div class="nav">
+        <div class="left_menu">
+            <h2><a href="#">Mogle</a></h2>
+            <p class="subtitle"><b>모</b>여서 쓰는 <b>글</b></p>
+        </div>
+        
+        <div class="middle_menu">
+            <div class="title-with-star">
+                <p><a class="active-diary">보라카이✈️</a></p>
+                <img src="../content/별.png" class="star-icon">
+            </div>
+        </div>
+        
+        <div class="multi-profile">
+            <img src="../content/clover-user-profile.png">
+            <img src="../content/user-profile.png" alt="profile">
+        </div>
+    </div>
+
+
+    <main class="diary-container">
+        <div class="sticker">
+            <h4 class="sticker-title text-medium-small">스타일</h4>
+
+            <div class="text-style">
+                <div class="textstyle-container">
+                    <div class="textstyle-item">
+                        **가**
+                    </div>
+                    <div class="textstyle-item">
+                        <u>가</u>
+                    </div>
+                    <div class="textstyle-item">
+                        <i>가</i>
+                    </div>
+                    <div class="textstyle-item">
+                        <span class="wavy-underline">가</span>
+                    </div>
+                    <div class="textstyle-item">
+                        _가_
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="sticker-title text-medium-small">스티커</h4>
+
+            <div class="sticker_nav">
+                <div class="sticker_menu">
+                    <p><a href="#" class="active">키치</a></p>
+                    <p><a href="#">심플</a></p>
+                    <p><a href="#">빈티지</a></p>
+                    <p><a href="#">감성</a></p>
+                    <p><a href="#">사용자추가</a></p>
+                </div>
+            </div>
+
+            <div class="sticker-image-container">
+                <div class="sticker-image">
+                    <img src="../content/sticker1.png" alt="sticker1">
+                </div>
+                <div class="sticker-image">
+                    <img src="../content/sticker2.png" alt="sticker2">
+                </div>
+            </div>
+
+            <button class="side-arrow-left">
+                <p><a href="#">>></a></p>
+            </button>
+
+        </div>
+
+        <div class="diary-card info-card">
+            <h3 class="card-main-title text-very-large">보라카이 ✈️</h3>
+            <p class="card-date text-medium">2025.08</p>
+        </div>
+
+    </main>
+
+</body>
+</html>
