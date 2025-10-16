@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="../css/style.css">
     <style>
            html, body {
-            height: 100%;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
 
         /* ==================== 책장 카드 ==================== */
@@ -46,11 +46,11 @@
         /* ==================== 팝업 ==================== */
         .add-book-popup {
             position: absolute;
-            top: 195px;
-            left: 510px;
+            top: calc(130px + 60px + 10px);
+            right: calc(600px + 10px);
             width: 580px;
             background-color: var(--background);
-            border-radius: 20px;
+            border-radius: 20px 0 20px 20px;
             padding: 40px;
             box-shadow:var(--box-shadow);
             display: flex;
@@ -59,20 +59,6 @@
             gap: 25px;
             z-index: 50;
             box-sizing: border-box;
-        }
-
-        .close-popup-btn {
-            position: absolute;
-            top: 25px;
-            right: 30px;
-            background: transparent;
-            border: none;
-            font-size: 2.5rem;
-            font-weight: 300;
-            color: var(--text-gray);
-            cursor: pointer;
-            padding: 0;
-            line-height: 1;
         }
 
         .close-popup-btn {
@@ -86,7 +72,7 @@
             border-radius: 50%; 
             font-size: 2rem;
             font-weight: 300;
-            color: var(--text-gray);
+            
             cursor: pointer;
             line-height: 1;
             display: flex;
@@ -95,10 +81,27 @@
             transition: background-color 0.2s, color 0.2s; 
         }
 
-        .close-popup-btn:hover {
+        .close-popup-btn:hover{
             background-color: #f0f0f0; /* 연한 회색 배경 추가 */
             color: #000; /* 글자색을 더 진하게 변경 */
         }
+
+
+        .friend-manage-btn{
+            background: transparent;
+            width: 40px;
+            height: 40px;
+            border: none;
+            cursor: pointer;
+            font-size: var(--font-medium-small);
+            -webkit-text-fill-color: #666666;
+            transition: background-color 0.2s;
+        }
+
+        .friend-manage-btn:hover {
+            -webkit-text-fill-color: #000000; 
+        }
+
 
         .add-book-popup h2 {
             font-size: var(--font-medium-small);
@@ -155,33 +158,6 @@
             border-radius: 50%;
         }
 
-        .friend-add-btn,
-        .friend-remove-btn {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            border: none;
-            cursor: pointer;
-            font-size: var(--font-very-small);
-            font-weight: bold;
-            color: var(--text-gray);
-            background-color: #f0f0f0;
-            transition: background-color 0.2s;
-        }
-
-        .friend-remove-btn {
-            background-color: var(--clover-green);
-            color: white;
-        }
-
-        .friend-add-btn:hover {
-            background-color: #e0e0e0;
-        }
-
-        .friend-remove-btn:hover {
-            opacity: 0.8;
-        }
-
         .create-btn-container {
             display: flex;
             justify-content: flex-end;
@@ -199,7 +175,7 @@
             font-size: var(--font-very-small);
             font-weight: bold;
             cursor: pointer;
-            transition: background 0.3s ease, transform 0.2s;
+            transition: var(--background) 0.3s ease, transform 0.2s;
         }
 
         .btn-create:hover {
@@ -244,7 +220,7 @@
         </div>
 
         <section class="favorite-bookshelves">
-            <h2 class="section-title">즐겨찾기한 책장</h2>
+            <h2 class="section-title" style="margin-top:75px">즐겨찾기한 책장</h2>
             <div class="horizontal-scroll-section" data-scroll-id="1">
                 <div class="bookshelf-row">
                     <div class="book-card favorite">
@@ -302,31 +278,32 @@
         <div class="friend-list">
             <div class="friend-item">
                 <div class="friend-info">
-                    <div class="friend-icon" style="background-color: var(--clover-green-light);"></div>
+                    
+                    <img src="../content/clover-user-profile.png" class="friend-icon">
                     <span>클로버</span>
                 </div>
-                <button class="friend-remove-btn">×</button>
+                <button class="friend-manage-btn">×</button>
             </div>
             <div class="friend-item">
                 <div class="friend-info">
-                    <div class="friend-icon" style="background-color: var(--star-blue-light);"></div>
+                    <img src="../content/user-profile.png" class="friend-icon">
                     <span>눈송이</span>
                 </div>
-                <button class="friend-add-btn">+</button>
+                <button class="friend-manage-btn">+</button>
             </div>
             <div class="friend-item">
                 <div class="friend-info">
-                    <div class="friend-icon" style="background-color: var(--sparkle-pink-light);"></div>
+                    <img src="../content/sparkle-user-profile.png" class="friend-icon">
                     <span>꽃송이</span>
                 </div>
-                <button class="friend-add-btn">+</button>
+                <button class="friend-manage-btn">+</button>
             </div>
             <div class="friend-item">
                 <div class="friend-info">
-                    <div class="friend-icon" style="background-color: #f0e68c;"></div>
+                    <img src="../content/heart-user-profile.png" class="friend-icon">
                     <span>눈덩이</span>
                 </div>
-                <button class="friend-add-btn">+</button>
+                <button class="friend-manage-btn">+</button>
             </div>
         </div>
         <div class="create-btn-container">

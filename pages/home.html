@@ -8,9 +8,9 @@
 
     <style>
         html, body {
-            height: 100%;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
 
 
@@ -23,8 +23,7 @@
             border-radius: 20px;
             background-color: #fff;
             box-shadow: var(--box-shadow);
-
-
+            transform: translateY(-3px); 
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
@@ -48,31 +47,7 @@
 
 
         /* ==================== 팝업 스타일 ==================== */
-        .add-book-popup {
-            position: absolute;
-            top: 195px;
-            /* 위치 조정 */
-            left: 510px;
-            /* right -> left 로 변경 */
-            width: 580px;
-            background-color: var(--background);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-            display: none;
-            /* JS가 flex로 변경하여 표시 */
-            flex-direction: column;
-            gap: 25px;
-            z-index: 50;
-            box-sizing: border-box;
-        }
 
-        .add-book-popup h2 {
-            font-size: var(--font-medium-small);
-            margin: 0;
-        }
-
-        /* 1. 책장 이름 입력란 스타일 수정 */
         .modal-input {
             width: 100%;
             height: 60px;
@@ -90,65 +65,6 @@
             color: var(--shadow-gray);
         }
 
-        .friend-list {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            max-height: 180px;
-            overflow-y: auto;
-            background-color: #fff;
-            border-radius: 20px;
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
-            padding: 20px;
-        }
-
-        .friend-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px;
-            border-radius: 10px;
-        }
-
-        .friend-info {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-size: var(--font-very-small);
-        }
-
-        .friend-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-        }
-
-        .friend-add-btn, .friend-remove-btn {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            border: none;
-            cursor: pointer;
-            font-size: 20px;
-            font-weight: bold;
-            color: var(--text-gray);
-            background-color: #f0f0f0;
-            transition: background-color 0.2s;
-        }
-
-        .friend-remove-btn {
-            background-color: var(--clover-green);
-            color: white;
-        }
-
-        .friend-add-btn:hover {
-            background-color: #e0e0e0;
-        }
-
-        .friend-remove-btn:hover {
-            opacity: 0.8;
-        }
-
         .create-btn-container {
             display: flex;
             justify-content: flex-end;
@@ -162,7 +78,7 @@
             /* 더 둥글게 */
             border: none;
             background: var(--background); /* 기본 배경을 흰색(var(--background))으로 변경 */
-            transition: background 0.3s ease, transform 0.2s; /* 배경색 전환 효과 추가 */
+            transition: var(--background) 0.3s ease, transform 0.2s;
             box-shadow: var(--box-shadow);
             color: black;
             font-family: var(--font-main);
@@ -175,6 +91,7 @@
         background: var(--gradient-soda); /* 마우스를 올렸을 때만 그라데이션 적용 */
         transform: scale(1.02);
         }
+
     </style>
 </head>
 <body>
@@ -210,7 +127,7 @@
         </div>
 
         <section class="favorite-bookshelves">
-            <h2 class="section-title">즐겨찾기한 책장</h2>
+            <h2 class="section-title" style="margin-top:75px">즐겨찾기한 책장</h2>
             <div class="horizontal-scroll-section" data-scroll-id="1">
                 
                 <div class="bookshelf-row">

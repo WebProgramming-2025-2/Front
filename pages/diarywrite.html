@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="../css/style.css">
     <style>
         html, body {
-            height: 100%;
             margin: 0;
             padding: 0;
             overflow-x: hidden;
@@ -32,18 +31,27 @@
 .diary-container {
     display: flex;
     justify-content: center; 
+    align-items: center; 
     gap: 50px; 
-    padding-top: 50px;
+    min-height: calc(100vh - 100px); 
+    height: auto; 
+    padding-bottom: 20px; 
+    overflow-y: auto; 
 }
+
 .diary-card{
     position: relative;
     border-radius: 20px;
     background-color: #fff;
     box-shadow: var(--box-shadow);
-    width: 700px; 
-    height: 705px;
+    width: 40vw; 
+    max-width: 700px; 
+    max-height: calc(100vh - 150px);
+    height: 76vh;
     padding: 30px; 
     box-sizing: border-box; 
+    min-height: 530px; 
+
 }
 
 .diary-textarea {
@@ -121,7 +129,8 @@
     font-size: var(--font-very-small);
     font-weight: bold;
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s;
+    transition: var(--background) 0.3s ease, transform 0.2s;
+    
 }
 
 .btn-create:hover {
