@@ -25,14 +25,17 @@
             height: 50px;
         }
 
-
 /* ==================== 카드 배치 및 스타일 ==================== */
 
 .diary-container {
     display: flex;
-    justify-content: center; 
+    justify-content: flex-start; 
+    align-items: center; 
     gap: 50px; 
-    padding-top: 50px;
+    min-height: calc(100vh - 100px); 
+    height: auto; 
+    padding-bottom: 20px; 
+    overflow-y: auto; 
 }
 
 .diary-card{
@@ -40,10 +43,13 @@
     border-radius: 20px;
     background-color: #fff;
     box-shadow: var(--box-shadow);
-    flex: 1; 
-    height: 705px;
     padding: 30px; 
     box-sizing: border-box; 
+    width: 40vw; 
+    max-width: 700px; 
+    max-height: calc(100vh - 150px);
+    height: 76vh;
+    min-height: 530px; 
 }
 
 .diary-textarea {
@@ -73,9 +79,9 @@
 
 .side-arrow-left {
     position: absolute;
-    top: 50%;
-    left: 100%;
-    transform: translate(-50%, -50%);
+    bottom: 20px;       /* 부모의 바닥에서 20px 위에 위치 */
+    right: -50px;       /* 부모의 오른쪽에서 25px 바깥으로 이동 */
+    transform: none;
     border: none;
     background-color: var(--sparkle-pink); 
     width: 50px;
@@ -103,11 +109,15 @@
     border-bottom-left-radius: 0;
     background-color: var(--background);
     flex: 1; 
-    height: 705px;
     padding: 30px; 
     box-sizing: border-box; 
     border: 1px solid var(--sparkle-pink);
     box-shadow: 0 3px 7px 0 var(--sparkle-pink);
+    width: 40vw; 
+    max-width: 700px; 
+    max-height: calc(100vh - 150px);
+    height: 76vh;
+    min-height: 530px; 
 }
 
 .sticker-title {
@@ -185,6 +195,7 @@
 
 .sticker-image-container {
     margin-top: 25px;
+    justify-content: center;
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
@@ -239,7 +250,7 @@
             <div class="text-style">
                 <div class="textstyle-container">
                     <div class="textstyle-item">
-                        **가**
+                        <strong>가</strong>
                     </div>
                     <div class="textstyle-item">
                         <u>가</u>
@@ -249,9 +260,6 @@
                     </div>
                     <div class="textstyle-item">
                         <span class="wavy-underline">가</span>
-                    </div>
-                    <div class="textstyle-item">
-                        _가_
                     </div>
                 </div>
             </div>
