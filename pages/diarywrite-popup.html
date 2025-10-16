@@ -102,6 +102,37 @@
     background-color: var(--sparkle-pink-light);       
 }
 
+.create-btn-container {
+    position: absolute; 
+    bottom: 30px; 
+    right: 30px; 
+    
+    display: flex;
+    justify-content: flex-end; 
+    width: auto; 
+    margin-top: 0; 
+    z-index: 2; 
+}
+.btn-create {
+    padding: 12px 30px;
+    border-radius: 25px;
+    border: none;
+    background: var(--background);
+    box-shadow: var(--box-shadow);
+    color: black;
+    font-family: var(--font-main);
+    font-size: var(--font-very-small);
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--background) 0.3s ease, transform 0.2s;
+    
+}
+.btn-create:hover {
+    background: var(--gradient-cloud);
+    transform: scale(1.02);
+    
+}
+
 .sticker {
     position: relative;
     border-radius: 20px;
@@ -291,9 +322,10 @@
 
         </div>
 
-        <div class="diary-card info-card">
-            <h3 class="card-main-title text-very-large">보라카이 ✈️</h3>
-            <p class="card-date text-medium">2025.08</p>
+        <div class="diary-card text-input-card">
+            <textarea class="diary-textarea text-medium-small" placeholder="재미있었다!"></textarea>
+                    <div class="create-btn-container">
+            <button class="btn-create" type="submit">업로드</button>
         </div>
 
     </main>
