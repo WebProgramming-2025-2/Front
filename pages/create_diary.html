@@ -63,18 +63,22 @@
 
         .container {
             max-width: 1280px;
-            max-height: 570px;
+            min-height: calc(100vh - 120px); 
+            height: auto; 
             display: grid;
             grid-template-columns: 1fr 1fr;
             padding: 30px 50px 0px 0px;
             margin-left: auto;
             margin-right: auto;
+            align-items: center;
         }
+
+
 
         .left-section {
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start; 
         }
 
         .notebook-card {
@@ -101,7 +105,7 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
             place-items: center;
-            margin-top: 30px;
+            
         }
 
         .theme-card {
