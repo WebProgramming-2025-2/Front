@@ -253,7 +253,7 @@
             cursor: pointer;
             font-family: var(--font-main);
             font-size: var(--font-very-small);
-            transition: background 0.3s ease;
+            transition: var(--background) 0.3s ease;
             background: var(--gradient-soda);
             justify-content: center;
             align-items: center;
@@ -269,7 +269,8 @@
             color: var(--warning);
             display: flex;
         }
-        
+
+
     </style>
 </head>
 <body>
@@ -298,7 +299,7 @@
 
     <main class="main-content-grid">
     <div class="search-area">
-        <button class="add-button btn-gradient soda"><a href="friend-popup2.html">+</a></button> 
+        <button class="add-button btn-gradient soda"><a href="friend-popup2.html">+</button> 
         
         <div class="search-box-container">
             <input type="text" placeholder="친구 검색" class="input-basic search-input">
@@ -322,7 +323,7 @@
                             </span>
                         </div>
                     </div>
-                    <button class="more-options-btn"><a href="friend-popup1.html">⋮</a></button>
+                    <button class="more-options-btn"><a href="friend-popup1.html">⋮</button>
                 </li>
 
                 <li class="friend-item">
@@ -340,7 +341,7 @@
                             </span>
                         </div>
                     </div>
-                    <button class="more-options-btn"><a href="friend-popup1.html">⋮</a></button>
+                    <button class="more-options-btn"><a href="friend-popup1.html">⋮</button>
                 </li>
 
                 <li class="friend-item">
@@ -359,17 +360,17 @@
                             </span>
                         </div>
                     </div>
-                    <button class="more-options-btn"><a href="friend-popup1.html">⋮</a></button>
+                    <button class="more-options-btn"><a href="friend-popup1.html">⋮</button>
                 </li>
             </ul>
             <div class="options-popup">
-                <a href="#" class="friend-bs-add">함께할 책장 추가</a>
-                <a href="#" class="friend-del">친구 삭제</a>
+                <a herf class="friend-bs-add">함께할 책장 추가</a>
+                <a href class="friend-del">친구 삭제</a>
             </div>
         </div>
     </div>
     <div class="option-friend-add">
-        <a href="#" class="friend-add">친구 추가</a>
+        <a herf class="friend-add">친구 추가</a>
         <div class="friend-email">
             <input type="text" placeholder="친구의 이메일을 입력하세요" class="input-basic search-input">
         </div>
