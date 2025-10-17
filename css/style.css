@@ -271,6 +271,18 @@ a {
     text-shadow: var(--text-shadow);
 }
 
+.middle_menu .active, .active-diary {
+    transform: scale(1.15);
+    text-shadow: var(--text-shadow);
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+.active-diary {
+    font-size: var(--font-medium-large);
+    background-color: var(--star-blue-light);
+}
+
 .right_profile img {
     width: 50px;
     height: 50px;
@@ -364,7 +376,6 @@ a {
     position: absolute; 
     top: 130px; 
     right: 78px; 
-    
     z-index: 10; 
 }
 
@@ -404,14 +415,15 @@ a {
 
 /* ==================== 메인 컨텐츠 그리드 배치 ==================== */
 .main-content-grid {
-    height: calc(100vh - 96px);
     padding: 30px 78px;
     box-sizing: border-box;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
     gap: 30px;
+    overflow-x: hidden;  
     overflow-y: auto;
+    min-height: calc(100vh - 96px); 
 }
 
 /* ==================== 스크롤 버튼 스타일 ==================== */
@@ -439,20 +451,23 @@ a {
     background-color: var(--star-blue);
     color: white;
 }
-        .horizontal-scroll-section {
+
+.horizontal-scroll-section {
     position: relative;
     padding-right: 50px;
-    width: 1190px;
+    width: 100%;  
     max-width: calc(100vw - 78px * 2 - 50px);
     overflow: hidden;
     margin-bottom: 30px;
 }
+
 .bookshelf-row {
     display: flex;
-    gap: 40px;
+    gap: 35px; 
     position: relative;
     left: 0;
     transition: left 0.3s ease-out;
     flex-wrap: nowrap;
     justify-content: flex-start;
+    width: max-content; 
 }
