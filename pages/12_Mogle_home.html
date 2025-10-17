@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8">
-    <title>책장 생성 - Mogle</title>
+    <title>홈-Mogle</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
+
     <style>
-           html, body {
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
+
 
         /* ==================== 책장 카드 ==================== */
         .book-card {
@@ -21,8 +17,8 @@
             height: 215px;
             border-radius: 20px;
             background-color: #fff;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            
+            box-shadow: var(--box-shadow);
+            transform: translateY(-3px); 
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
@@ -43,70 +39,9 @@
             padding-left: 5px;
         }
 
-        /* ==================== 팝업 ==================== */
-        .add-book-popup {
-            position: absolute;
-            top: calc(130px + 60px + 10px);
-            right: calc(600px + 10px);
-            width: 580px;
-            background-color: var(--background);
-            border-radius: 20px 0 20px 20px;
-            padding: 40px;
-            box-shadow:var(--box-shadow);
-            display: flex;
-            /* 이 페이지에서는 팝업이 보이도록 함 */
-            flex-direction: column;
-            gap: 25px;
-            z-index: 50;
-            box-sizing: border-box;
-        }
-
-        .close-popup-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 40px;
-            height: 40px;
-            background: transparent;
-            border: none;
-            border-radius: 50%; 
-            font-size: 2rem;
-            font-weight: 300;
-            
-            cursor: pointer;
-            line-height: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background-color 0.2s, color 0.2s; 
-        }
-
-        .close-popup-btn:hover{
-            background-color: #f0f0f0; /* 연한 회색 배경 추가 */
-            color: #000; /* 글자색을 더 진하게 변경 */
-        }
 
 
-        .friend-manage-btn{
-            background: transparent;
-            width: 40px;
-            height: 40px;
-            border: none;
-            cursor: pointer;
-            font-size: var(--font-medium-small);
-            -webkit-text-fill-color: #666666;
-            transition: background-color 0.2s;
-        }
-
-        .friend-manage-btn:hover {
-            -webkit-text-fill-color: #000000; 
-        }
-
-
-        .add-book-popup h2 {
-            font-size: var(--font-medium-small);
-            margin: 0;
-        }
+        /* ==================== 팝업 스타일 ==================== */
 
         .modal-input {
             width: 100%;
@@ -125,68 +60,35 @@
             color: var(--shadow-gray);
         }
 
-        .friend-list {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            max-height: 180px;
-            overflow-y: auto;
-            background-color: #fff;
-            border-radius: 20px;
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
-            padding: 20px;
-        }
-
-        .friend-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px;
-            border-radius: 10px;
-        }
-
-        .friend-info {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-size: var(--font-very-small);
-        }
-
-        .friend-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-        }
-
         .create-btn-container {
             display: flex;
             justify-content: flex-end;
             margin-top: 10px;
         }
 
+        /* 3. 생성 버튼 스타일 수정 */
         .btn-create {
             padding: 12px 30px;
             border-radius: 25px;
+            /* 더 둥글게 */
             border: none;
-            background: var(--background);
+            background: var(--background); /* 기본 배경을 흰색(var(--background))으로 변경 */
+            transition: var(--background) 0.3s ease, transform 0.2s;
             box-shadow: var(--box-shadow);
             color: black;
             font-family: var(--font-main);
             font-size: var(--font-very-small);
             font-weight: bold;
             cursor: pointer;
-            transition: var(--background) 0.3s ease, transform 0.2s;
         }
 
         .btn-create:hover {
-            background: var(--gradient-soda);
-            transform: scale(1.02);
-            
+        background: var(--gradient-soda); /* 마우스를 올렸을 때만 그라데이션 적용 */
+        transform: scale(1.02);
         }
 
     </style>
 </head>
-
 <body>
     <div class="background-decorations">
         <div class="bg-star"></div>
@@ -213,7 +115,7 @@
 
     <main class="main-content-grid">
         <div class="search-area">
-            <a href="home.html" class="add-button btn-gradient soda">+</a>
+            <button class="add-button btn-gradient soda"><a href="12_Mogle_home-popup.html">+</a></button>
             <div class="search-box-container">
                 <input type="text" placeholder="책장 검색" class="input-basic search-input">
             </div>
@@ -222,6 +124,7 @@
         <section class="favorite-bookshelves">
             <h2 class="section-title" style="margin-top:75px">즐겨찾기한 책장</h2>
             <div class="horizontal-scroll-section" data-scroll-id="1">
+                
                 <div class="bookshelf-row">
                     <div class="book-card favorite">
                         <p class="book-title">Best Friend</p>
@@ -271,46 +174,5 @@
         </section>
     </main>
 
-    <div id="addBookPopup" class="add-book-popup">
-        <a href="home.html" class="close-popup-btn">&times;</a>
-        <h2>새로운 책장 생성</h2>
-        <input type="text" class="modal-input" placeholder="새로운 책장의 이름을 작성하세요.">
-        <div class="friend-list">
-            <div class="friend-item">
-                <div class="friend-info">
-                    
-                    <img src="../content/clover-user-profile.png" class="friend-icon">
-                    <span>클로버</span>
-                </div>
-                <button class="friend-manage-btn">×</button>
-            </div>
-            <div class="friend-item">
-                <div class="friend-info">
-                    <img src="../content/user-profile.png" class="friend-icon">
-                    <span>눈송이</span>
-                </div>
-                <button class="friend-manage-btn">+</button>
-            </div>
-            <div class="friend-item">
-                <div class="friend-info">
-                    <img src="../content/sparkle-user-profile.png" class="friend-icon">
-                    <span>꽃송이</span>
-                </div>
-                <button class="friend-manage-btn">+</button>
-            </div>
-            <div class="friend-item">
-                <div class="friend-info">
-                    <img src="../content/heart-user-profile.png" class="friend-icon">
-                    <span>눈덩이</span>
-                </div>
-                <button class="friend-manage-btn">+</button>
-            </div>
-        </div>
-        <div class="create-btn-container">
-            <button class="btn-create" type="submit">생성</button>
-        </div>
-    </div>
-
 </body>
-
 </html>

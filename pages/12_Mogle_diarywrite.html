@@ -3,15 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>다이어리 목록 화면 - Mogle</title>
+    <title>다이어리 작성-Mogle</title>
     <link rel="stylesheet" href="../css/style.css">
     <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
+        html,body {
+            overflow-y: hidden !important; 
         }
-
         .middle_menu {
             justify-content: flex-start;
             padding-left: 80px;
@@ -36,7 +33,6 @@
     min-height: calc(100vh - 100px); 
     height: auto; 
     padding-bottom: 20px; 
-    overflow-y: auto; 
 }
 
 .diary-card{
@@ -100,6 +96,8 @@
     padding: 0;
     line-height: 1; 
 }
+
+
 
 .side-arrow-left:hover {
        background-color: var(--sparkle-pink-light);       
@@ -181,7 +179,7 @@
         </div>
     </main>
     <button class="side-arrow-left">
-         <p><a href="#">>></a></p>
+         <p><a href="diarywrite-popup.html">>></a></p>
     </button>
 
 

@@ -45,6 +45,12 @@
 }
 
 /* ==================== 기본 스타일 ==================== */
+html, body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+}
+
 body {
     font-family: var(--font-main);
     background-color: var(--background);
@@ -369,16 +375,17 @@ a {
     pointer-events: none; 
 }
 
+
 .search-area {
     display: flex;
-    justify-content: flex-end; 
+    justify-content: flex-end;
     align-items: center;
-    position: absolute; 
-    top: 130px; 
-    right: 78px; 
-    z-index: 10; 
+    position: absolute;
+    top: 130px;
+    right: 78px;
+    z-index: 10;
+    max-width: calc(100vw - 156px);
 }
-
 /* ==================== 별 아이콘 ==================== */
 
 .star-icon {
@@ -425,6 +432,7 @@ a {
     overflow-y: auto;
     min-height: calc(100vh - 96px); 
 }
+
 
 /* ==================== 스크롤 버튼 스타일 ==================== */
 .scroll-button {
