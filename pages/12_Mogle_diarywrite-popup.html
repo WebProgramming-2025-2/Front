@@ -48,6 +48,12 @@
     min-height: 530px; 
 }
 
+
+.text-input-card {
+    position: absolute;
+    left: calc(50% + 25px);    
+}
+
 .diary-textarea {
     width: 100%;
     height: 100%;
@@ -74,12 +80,12 @@
 }
 
 .side-arrow-left {
-    position: absolute;
-    bottom: 20px;       /* 부모의 바닥에서 20px 위에 위치 */
-    right: -50px;       /* 부모의 오른쪽에서 25px 바깥으로 이동 */
-    transform: none;
+    position: fixed;
+    top: 80%;
+    left: 0;
+    transform: translateY(-50%);
     border: none;
-    background-color: var(--sparkle-pink); 
+    background-color: var(--sparkle-pink-light); 
     width: 50px;
     height: 100px;
     border-radius: 0 60px 60px 0; 
@@ -95,7 +101,7 @@
 }
 
 .side-arrow-left:hover {
-    background-color: var(--sparkle-pink-light);       
+    background-color: var(--sparkle-pink);       
 }
 
 .create-btn-container {
@@ -109,6 +115,7 @@
     margin-top: 0; 
     z-index: 2; 
 }
+
 .btn-create {
     padding: 12px 30px;
     border-radius: 25px;
@@ -123,6 +130,7 @@
     transition: var(--background) 0.3s ease, transform 0.2s;
     
 }
+
 .btn-create:hover {
     background: var(--gradient-cloud);
     transform: scale(1.02);
@@ -222,22 +230,22 @@
 
 .sticker-image-container {
     margin-top: 25px;
-    justify-content: center;
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
-    padding: 10px;
+    justify-content: center;
     max-height: 300px;
-    overflow-y: auto;
 }
 
-.sticker-image {
-    width: 220px;
-    height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+.sticker-item {
+    width: 18vw;
+    height: 38vh;
+    object-fit: contain;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.sticker-item:hover {
+    transform: scale(1.05);
 }
 
     </style>
@@ -304,16 +312,12 @@
             </div>
 
             <div class="sticker-image-container">
-                <div class="sticker-image">
-                    <img src="../content/sticker1.png" alt="sticker1">
-                </div>
-                <div class="sticker-image">
-                    <img src="../content/sticker2.png" alt="sticker2">
-                </div>
+                <img src="../content/sticker1.png" alt="sticker1" class="sticker-item">
+                <img src="../content/sticker2.png" alt="sticker2" class="sticker-item">
             </div>
 
             <button class="side-arrow-left">
-                <p><a href="12_Mogle_diarywrite.html">>></a></p>
+                <p><a href="12_Mogle_diarywrite.html"><<</a></p>
             </button>
 
         </div>
@@ -323,7 +327,6 @@
                     <div class="create-btn-container">
             <button class="btn-create" type="submit">업로드</button>
         </div>
-
     </main>
 
 </body>
