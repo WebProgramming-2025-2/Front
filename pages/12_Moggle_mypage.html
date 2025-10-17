@@ -17,7 +17,10 @@
             background-color: var(--sparkle-pink);
             padding: 10px 20px;
             border-radius: 8px;
+            position: relative;
+            z-index: 1;
         }
+
         .nav{
             border-color: var(--sparkle-pink);
         }
@@ -31,6 +34,8 @@
             width: 100%;
             position: relative;
             margin: 0 auto;
+            min-height: calc(100vh - 100px);
+            align-items: stretch;
         }
 
         .left {
@@ -39,7 +44,7 @@
             background: transparent;
         }
 
-        .profile {
+        .profile-main {
             display: flex;
             align-items: center;
             margin-bottom: 40px;
@@ -89,8 +94,8 @@
             display: flex;
             position: relative;
             flex-direction: column;
-            width: 530px;
-            height: 325px;
+            width: 41vw;
+            height: 39vh;
             border-radius: 30px;
             background-color: var(--background);
             box-shadow: var(--box-shadow);
@@ -151,12 +156,12 @@
             position: relative;
             flex-direction: column;
             align-items: center;
-            width: 530px;
-            height: 565px;
+            width: 41vw;
+            height: 70vh;
             border-radius: 30px;
             background-color: var(--background);
             box-shadow: var(--box-shadow);
-            padding: 20px;
+            padding: 20px 20px 8vh 20px;
         }
 
         .calendar-month {
@@ -204,40 +209,6 @@
             height: 30px;
         }
 
-        .emotion-modal-static {
-            display: block;
-            position: absolute;
-            background: var(--background);
-            border-radius: 40px;
-            border-top-left-radius: 0;
-            box-shadow: var(--box-shadow);
-            width: auto;
-            height: 70px;
-            top: 110%;
-            left: 80%;
-            transform: translateY(-50%);
-            margin-left: 20px;
-            z-index: 10;
-        }
-
-        .emotion-grid {
-            display: flex;
-            gap: 10px;
-        }
-
-        .emotion-position {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 45px;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-
-        .emotion-position:hover {
-            transform: scale(1.2);
-        }
-
     </style>
 </head>
 
@@ -256,33 +227,20 @@
         <div class="middle_menu">
             <p><a href="#">책장</a></p>
             <p><a href="#">친구 관리</a></p>
-            <p><a href="#"class="active">마이페이지</a></p>
+            <p><a href="#" class="active">마이페이지</a></p>
         </div>
         <div class="right_profile">
-            <img src="../content/user-profile.png" alt="profile">
+            <img src="../content/user-profile.png">
         </div>
     </div>
 
 
     <div class="container">
         <div class="left">
-            <div class="profile">
+            <div class="profile-main">
                 <div class="profile-image">
                     <img src="../content/user-profile.png" style="width: 200px;" alt="사용자 프로필">
                     <div class="emotion-icon">😆</div>
-                    <div class="emotion-modal-static">
-                        <div class="emotion-grid">
-                            <div class="emotion-position">😆</div>
-                            <div class="emotion-position">😍</div>
-                            <div class="emotion-position">🙂</div>
-                            <div class="emotion-position">😥</div>
-                            <div class="emotion-position">🥱</div>
-                            <div class="emotion-position">😫</div>
-                            <div class="emotion-position">😖</div>
-                            <div class="emotion-position">😰</div>
-                        </div>
-                    </div>
-
                 </div>
                 <div class="name input-basic" style="width: 305px;">
                     <span class="text-medium-small font-main">눈송이</span>
