@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>회원가입</title>
+    <title>회원가입-Mogle</title>
     <link rel="stylesheet" href="../css/style.css">
     <style>
         /* 전체 설정 */
@@ -195,6 +195,20 @@
         .icon-label {
             font-size: 15px;
         }
+
+        .underline-gray {
+            text-decoration: underline wavy;
+            text-decoration-color: var(--shadow-gray);
+            text-decoration-thickness: 15%;
+            text-underline-offset: 20%;
+        }
+
+        .underline-pink {
+            text-decoration: underline wavy;
+            text-decoration-color: var(--sparkle-pink);
+            text-decoration-thickness: 15%;
+            text-underline-offset: 20%;
+        }
     </style>
 </head>
 <body>
@@ -205,7 +219,9 @@
     </div>
 
     <div class="nav h2" style="margin-bottom: 30px; font-size: var(--font-medium-large);">
-        회원 정보를 입력해 주세요!
+        <div>
+            <span class="underline-gray">회원 정보</span>를 입력해 주세요!
+        </div>
     </div>
     <div class="container">
         <div class="left-section">
@@ -310,7 +326,7 @@
             </div>
 
             <div class="mogle-link">
-                Mogle로 친구들과 추억을 공유할 준비가 되었다면 ›
+                Mogle로 친구들과 <span class="underline-pink">추억을 공유</span> 할 준비가 되었다면 &gt;
             </div>
 
             <div style="display: flex; justify-content: center;">
