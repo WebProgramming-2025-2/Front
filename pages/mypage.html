@@ -121,37 +121,24 @@
             width: 100%;
         }
 
-        .profile-stack {
-            position: relative;
-            display: flex;
-            align-items: center;
+        .multi-profile {
             width: 180px; 
             height: 60px;
         }
 
-        .stacked-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;    
-            position: absolute;
-            top: 0;
-        }
-
-        .stacked-icon:nth-child(1) {
-            left: 0px;
+        .multi-profile img:first-child {
             z-index: 3;
         }
 
-        .stacked-icon:nth-child(2) {
-            left: 25px;
+        .multi-profile img:nth-child(2) {
             z-index: 2;
+            margin-left: -25px;
         }
 
-        .stacked-icon:nth-child(3) {
-            left: 50px;
+        .multi-profile img:nth-child(3) {
             z-index: 1;
+            margin-left: -25px;
         }
-
 
         .right{
             flex: 1;
@@ -211,10 +198,7 @@
         .date.empty {
             border-bottom: none;
         }
-        .date.today span:first-child {
-            color: var(--warning);
-            font-weight: bold;
-        }
+        
         .visited-star {
             width: 30px;
             height: 30px;
@@ -268,17 +252,17 @@
                 <div class="bookcase-list">
                     <div class="book-item">
                         <span class="text-medium-small font-main">2025 과동기</span>
-                        <div class="profile-stack">
-                            <img src="../content/clover-user-profile.png" alt="클로버 프로필" class="stacked-icon">
-                            <img src="../content/heart-user-profile.png" alt="하트 프로필" class="stacked-icon">
+                        <div class="multi-profile">
+                            <img src="../content/clover-user-profile.png" alt="클로버 프로필" class="first-child">
+                            <img src="../content/heart-user-profile.png" alt="하트 프로필" class="2th-child">
                         </div>
                     </div>
                     <div class="book-item">
                         <span class="text-medium-small font-main">2025 웹프로그래밍</span>
-                        <div class="profile-stack">
-                            <img src="../content/paw-user-profile.png" alt="발바닥 프로필" class="stacked-icon">
-                            <img src="../content/sparkle-user-profile.png" alt="반짝 프로필" class="stacked-icon">
-                            <img src="../content/heart-user-profile.png" alt="하트 프로필" class="stacked-icon">
+                        <div class="multi-profile">
+                            <img src="../content/paw-user-profile.png" alt="발바닥 프로필" class="first-child">
+                            <img src="../content/sparkle-user-profile.png" alt="반짝 프로필" class="2th-child">
+                            <img src="../content/heart-user-profile.png" alt="하트 프로필" class="3th-child">
                         </div>
                     </div>
                 </div>
@@ -325,7 +309,7 @@
                     <div class="grid-cell date"><span>13</span></div>
                     <div class="grid-cell date"><span>14</span></div>
                     <div class="grid-cell date"><span>15</span></div>
-                    <div class="grid-cell date today"><span>16</span></div>
+                    <div class="grid-cell date"><span>16</span></div>
                     <div class="grid-cell date"><span>17</span></div>
                     <div class="grid-cell date"><span>18</span></div>
                     <div class="grid-cell date"><span>19</span></div>
