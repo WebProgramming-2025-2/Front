@@ -75,7 +75,7 @@ a {
     height: 60%;
     
     left: 56%; 
-    top: -9%; 
+    top: -11%; 
     
     transform: rotate(-15deg);
     opacity: 1; 
@@ -103,7 +103,7 @@ a {
     width: 40%; 
     height: 60%;
     
-    left: 65%; 
+    left: 71%; 
     top: 40%; 
     
     opacity: 1;
@@ -256,13 +256,31 @@ a {
 }
 
 .middle_menu p {
-    font-size: 25px;
+    font-size: var(--font-medium);
+}
+
+.middle_menu .title-with-star {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .middle_menu a:hover:not(.active) {
     font-weight: bold;
     transform: scale(1.15);
     text-shadow: var(--text-shadow);
+}
+
+.middle_menu .active, .active-diary {
+    transform: scale(1.15);
+    text-shadow: var(--text-shadow);
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+.active-diary {
+    font-size: var(--font-medium-large);
+    background-color: var(--star-blue-light);
 }
 
 .right_profile img {
@@ -272,6 +290,28 @@ a {
     object-fit: cover;
 }
 
+.multi-profile {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.multi-profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: relative;
+}
+
+.multi-profile img:first-child {
+    z-index: 2;
+}
+
+.multi-profile img:nth-child(2) {
+    z-index: 1;
+    margin-left: -25px;
+}
 
 /* ==================== 미디어 쿼리 ==================== */
 @media (max-width: 1000px) {
@@ -336,7 +376,6 @@ a {
     position: absolute; 
     top: 130px; 
     right: 78px; 
-    
     z-index: 10; 
 }
 
@@ -363,11 +402,11 @@ a {
 }
 
 .star-filled span {
-    background-image: url("../images/별.png");
+    background-image: url("../content/별.png");
 }
 
 .star-empty span {
-    background-image: url("../images/빈 별.png");
+    background-image: url("../content/빈 별.png");
 }
 
 .star-icon:hover span {
@@ -376,14 +415,15 @@ a {
 
 /* ==================== 메인 컨텐츠 그리드 배치 ==================== */
 .main-content-grid {
-    height: calc(100vh - 96px);
     padding: 30px 78px;
     box-sizing: border-box;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
     gap: 30px;
+    overflow-x: hidden;  
     overflow-y: auto;
+    min-height: calc(100vh - 96px); 
 }
 
 /* ==================== 스크롤 버튼 스타일 ==================== */
@@ -404,27 +444,30 @@ a {
     text-align: center;
     font-weight: bold;
     color: var(--blue-text);
-    transition: background 0.2s;
+    transition: var(--background) 0.2s;
     z-index: 5;
 }
 .scroll-button:hover {
     background-color: var(--star-blue);
     color: white;
 }
-        .horizontal-scroll-section {
+
+.horizontal-scroll-section {
     position: relative;
     padding-right: 50px;
-    width: 1190px;
+    width: 100%;  
     max-width: calc(100vw - 78px * 2 - 50px);
     overflow: hidden;
     margin-bottom: 30px;
 }
+
 .bookshelf-row {
     display: flex;
-    gap: 40px;
+    gap: 35px; 
     position: relative;
     left: 0;
     transition: left 0.3s ease-out;
     flex-wrap: nowrap;
     justify-content: flex-start;
+    width: max-content; 
 }

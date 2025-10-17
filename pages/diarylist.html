@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>다이어리 목록 화면 - Mogle</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+    
+        .middle_menu {
+            justify-content: flex-start;
+            padding-left: 80px;
+            gap: 8px;
+        }
+    
+        .star-icon {
+            position: static;
+            width: 40px;
+            height: 40px;
+        }
+
+        .diary-item {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .book-card {
+            position: relative;
+            width: 161px;
+            height: 240px;
+            border-radius: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+            padding: 5px;
+            cursor: pointer;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .book-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+
+        .book-card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        .book-title {
+            margin-top: 15px;
+            font-size: var(--font-very-small);
+            color: #000;
+            text-align: center;
+            white-space: nowrap;
+            z-index: 1;
+        }
+
+        .diary-we-wrote {
+            position: relative;
+        }
+
+        .diary-we-wrote .section-title {
+            margin-top: 70px;
+            margin-bottom: 25px;
+        }
+
+        .diary-we-wrote .horizontal-scroll-section {
+            position: relative;
+            padding-bottom: 0px;
+            width: 100%;
+            max-width: calc(100vw-156px);
+            overflow-x: hidden;
+        }
+
+        .diary-we-wrote .horizontal-scroll-section::after {
+            content: '';
+            position: absolute;
+            bottom: 50px;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background-color: #8B6F47;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .diary-we-wrote .bookshelf-row {
+            display: flex;
+            gap: 20px;
+            align-items: flex-end;
+            padding-bottom: 0;
+        }
+
+        .before-nmonth {
+            position: relative;
+        }
+
+        .before-nmonth .section-title {
+            margin-bottom: 25px;
+        }
+
+        .stacked-card-container {
+            position: relative;
+            width: 171px;
+            height: 260px;
+            flex-shrink: 0;
+            padding-bottom: 10px;
+        }
+
+        .stacked-card-front {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+        }
+
+        .stacked-card-back {
+            position: absolute;
+            top: -15px;
+            left: 15px;
+            z-index: 1;
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        .before-nmonth .diary-item .book-title {
+            display: none;
+        }
+
+        .before-nmonth .bookshelf-row {
+            display: flex;
+            gap: 40px;
+        }
+
+        .before-nmonth .horizontal-scroll-section {
+            padding: 10px;
+            width: 100%;
+            max-width: calc(100vw-156px);
+            overflow-x: hidden;
+        }
+
+        .search-area {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            position: absolute;
+            top: 130px;
+            right: 78px;
+            z-index: 10;
+            max-width: calc(100vw - 156px);
+        }
+
+        .main-content-grid {
+            overflow-x: hidden;
+            overflow-y: auto;
+            padding-right: 60px;
+        }
+
+        .bookshelf-row {
+            padding-right: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-decorations">
+        <div class="bg-star"></div>
+        <div class="bg-clover"></div>
+        <div class="bg-sparkle"></div>
+    </div>
+
+    <div class="nav">
+        <div class="left_menu">
+            <h2><a href="#">Mogle</a></h2>
+            <p class="subtitle"><b>모</b>여서 쓰는 <b>글</b></p>
+        </div>
+        
+        <div class="middle_menu">
+            <div class="title-with-star">
+                <p><a class="active-diary">Best Friend</a></p>
+                <img src="../content/별.png" class="star-icon">
+            </div>
+        </div>
+        
+        <div class="multi-profile">
+            <img src="../content/clover-user-profile.png">
+            <img src="../content/user-profile.png" alt="profile">
+        </div>
+    </div>
+    <main class="main-content-grid">
+        <div class="search-area">
+            <button class="add-button btn-gradient soda">+</button> 
+            
+            <div class="search-box-container">
+                <input type="text" placeholder="다이어리 검색" class="input-basic search-input">
+            </div>
+        </div>
+    
+        <section class="diary-we-wrote">
+            <h2 class="section-title text-medium-large">함께 작성한 다이어리</h2>
+            <div class="horizontal-scroll-section">
+                <div class="bookshelf-row">
+                    <div class="diary-item">
+                        <div class="book-card">
+                            <img src="../content/cover1.png" alt="보라카이" class="book-card-image">
+                        </div>
+                        <h3 class="book-title">🌊보라카이</h3>
+                    </div>
+
+                    <div class="diary-item">
+                        <div class="book-card">
+                            <img src="../content/cover2.png" alt="슬립오버" class="book-card-image">
+                        </div>
+                        <h3 class="book-title">🫧슬립오버</h3>
+                    </div>
+
+                    <div class="diary-item">
+                        <div class="book-card">
+                            <img src="../content/cover3.png" alt="생일 파티" class="book-card-image">
+                        </div>
+                        <h3 class="book-title">🍰생일 파티!</h3>
+                    </div>
+
+                    <div class="diary-item">
+                        <div class="book-card">
+                            <img src="../content/cover4.png" alt="경주 여행" class="book-card-image">
+                        </div>
+                        <h3 class="book-title">🚞경주 여행</h3>
+                    </div>
+
+                    <div class="diary-item">
+                        <div class="book-card">
+                            <img src="../content/cover5.png" alt="베이킹" class="book-card-image">
+                        </div>
+                        <h3 class="book-title">🥖베이킹</h3>
+                    </div>
+
+                    <div class="diary-item">
+                        <div class="book-card">
+                            <img src="../content/cover6.png" alt="쇼핑" class="book-card-image">
+                        </div>
+                        <h3 class="book-title">🛍️쇼핑</h3>
+                    </div>
+
+                    <div class="diary-item">
+                        <div class="book-card">
+                            <img src="../content/cover1.png" alt="뜨개질" class="book-card-image">
+                        </div>
+                        <h3 class="book-title">🧶뜨개질</h3>
+                    </div>
+
+                    <div class="diary-item">
+                        <div class="book-card">
+                            <img src="../content/cover2.png" alt="다이빙" class="book-card-image">
+                        </div>
+                        <h3 class="book-title">🤿다이빙</h3>
+                    </div>
+                </div>
+                <button class="scroll-button">›</button>
+            </div>
+        </section>
+
+        <section class="before-nmonth">
+            <h2 class="section-title text-medium-large">n개월 전 우리</h2>
+            <div class="horizontal-scroll-section">
+                <div class="bookshelf-row">
+                    <div class="stacked-card-container diary-item">
+                        <div class="book-card stacked-card-back">
+                            <img src="../content/cover1.png" alt="보라카이" class="book-card-image">
+                        </div>
+                        <div class="book-card stacked-card-front">
+                            <img src="../content/cover1.png" alt="보라카이" class="book-card-image">
+                        </div>
+                        <h3 class="book-title">보라카이✈️</h3>
+                    </div>
+
+                    <div class="stacked-card-container diary-item">
+                        <div class="book-card stacked-card-back">
+                            <img src="../content/cover2.png" alt="슬립오버" class="book-card-image">
+                        </div>
+                        <div class="book-card stacked-card-front">
+                            <img src="../content/cover2.png" alt="슬립오버" class="book-card-image">
+                        </div>
+                        <h3 class="book-title">슬립오버</h3>
+                    </div>
+                </div>
+                <button class="scroll-button">›</button>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
