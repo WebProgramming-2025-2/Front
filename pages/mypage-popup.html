@@ -220,6 +220,40 @@
             height: 30px;
         }
 
+        .emotion-modal-static {
+            display: block;
+            position: absolute;
+            background: var(--background);
+            border-radius: 40px;
+            border-top-left-radius: 0;
+            box-shadow: var(--box-shadow);
+            width: auto;
+            height: 70px;
+            top: 110%;
+            left: 80%;
+            transform: translateY(-50%);
+            margin-left: 20px;
+            z-index: 10;
+        }
+
+        .emotion-grid {
+            display: flex;
+            gap: 10px;
+        }
+
+        .emotion-position {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 45px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .emotion-position:hover {
+            transform: scale(1.2);
+        }
+
     </style>
 </head>
 
@@ -252,6 +286,19 @@
                 <div class="profile-image">
                     <img src="../content/user-profile.png" style="width: 200px;" alt="사용자 프로필">
                     <div class="emotion-icon">😆</div>
+                    <div class="emotion-modal-static">
+                        <div class="emotion-grid">
+                            <div class="emotion-position">😆</div>
+                            <div class="emotion-position">😍</div>
+                            <div class="emotion-position">🙂</div>
+                            <div class="emotion-position">😥</div>
+                            <div class="emotion-position">🥱</div>
+                            <div class="emotion-position">😫</div>
+                            <div class="emotion-position">😖</div>
+                            <div class="emotion-position">😰</div>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="name input-basic" style="width: 305px;">
                     <span class="text-medium-small font-main">눈송이</span>
