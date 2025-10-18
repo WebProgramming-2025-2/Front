@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>친구 목록-Mogle</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/12_Mogle_style.css">
     <style>
 
         .middle_menu .active {
@@ -97,15 +98,15 @@
         }
 
         .friend-item:nth-child(1) .profile-picture {
-            background-image: url("../content/heart-user-profile.png");
+            background-image: url("../content/12_heart-user-profile.png");
         }
 
         .friend-item:nth-child(2) .profile-picture {
-            background-image: url("../content/paw-user-profile.png");
+            background-image: url("../content/12_paw-user-profile.png");
         }
 
         .friend-item:nth-child(3) .profile-picture {
-            background-image: url("../content/sparkle-user-profile.png");
+            background-image: url("../content/12_sparkle-user-profile.png");
         }
 
         .mood {
@@ -140,54 +141,6 @@
             font-size: var(--font-medium-small);
         
             cursor: pointer;
-        }
-
-    /* ==================== 더보기 버튼 클릭시 생성되는 팝업 ==================== */
-
-        .options-popup {
-        /* 평소에는 숨겨둡니다. */
-            display: none;
-            z-index: 10; 
-        
-            position: absolute;
-            width: 330px;
-            height: 118px;
-            top: 300px;
-            left: 800px;
-
-            border-top-left-radius: 40px;
-            border-bottom-right-radius: 40px;
-            border-bottom-left-radius: 40px;
-        
-            background-color: white;
-            box-shadow: var(--box-shadow);
-            padding: 10px;
-            box-sizing: border-box;
-
-            flex-direction: column;
-            justify-content: center;
-            gap: 5px;
-        }
-
-        .friend-bs-add{
-            display: flex;
-            position: absolute;
-            width: 164;
-            height: 34;
-            top: 21px;
-            left: 83px;
-            font-size: var(--font-small);
-        }
-
-        .friend-del{
-            display: flex;
-            position: absolute;
-            width: 93;
-            height: 34;
-            top: 69px;
-            left: 118px;
-            font-size: var(--font-small);
-            color: var(--warning);
         }
 
     /* ==================== 친구 추가 버튼 클릭시 생성되는 창 ==================== */
@@ -271,6 +224,11 @@
             color: var(--warning);
             display: flex;
         }
+
+        body {
+            overflow: hidden;
+            height: 100vh;
+        }
     </style>
 </head>
 <body>
@@ -282,24 +240,24 @@
 
     <div class="nav">
         <div class="left_menu">
-            <h2><a href="index.html">Mogle</a></h2>
+            <h2><a href="12_Mogle_home.html">Mogle</a></h2>
             <p class="subtitle"><b>모</b>여서 쓰는 <b>글</b></p>
         </div>
         
         <div class="middle_menu">
-            <p><a href="pf_home.html" >책장</a></p>
-            <p><a href="pf_photo.html" class="active">친구 관리</a></p>
-            <p><a href="pf_music.html">마이페이지</a></p>
+            <p><a href="12_Mogle_home.html" >책장</a></p>
+            <p><a href="12_Mogle_friend.html" class="active">친구 관리</a></p>
+            <p><a href="12_Mogle_mypage.html">마이페이지</a></p>
         </div>
         
         <div class="right_profile">
-            <img src="../content/user-profile.png" alt="profile">
+            <img src="../content/12_user-profile.png" alt="profile">
         </div>
     </div>
 
     <main class="main-content-grid">
     <div class="search-area">
-        <button class="add-button btn-gradient soda"><a href="friend.html">+</button> 
+        <a href="12_Mogle_friend.html" class="add-button btn-gradient soda">+</a> 
         
         <div class="search-box-container">
             <input type="text" placeholder="친구 검색" class="input-basic search-input">
@@ -363,10 +321,7 @@
                     <button class="more-options-btn">⋮</button>
                 </li>
             </ul>
-            <div class="options-popup">
-                <a herf class="friend-bs-add">함께할 책장 추가</a>
-                <a href class="friend-del">친구 삭제</a>
-            </div>
+            
         </div>
     </div>
     <div class="option-friend-add">
@@ -379,6 +334,4 @@
     </div>
     </main>
 </body>
-
 </html>
-

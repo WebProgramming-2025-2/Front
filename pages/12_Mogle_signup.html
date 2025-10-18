@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>회원가입-Mogle</title>
-        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/12_Mogle_style.css">
         <style>
             /* 전체 설정 */
             * {
@@ -209,6 +209,11 @@
                 text-decoration-thickness: 15%;
                 text-underline-offset: 20%;
             }
+
+            body {
+                overflow: hidden;
+                height: 100vh;
+            }
         </style>
     </head>
     <body>
@@ -227,9 +232,11 @@
             <div class="left-section">
                 <div class="profile-section">
                     <div class="profile-image">
-                        <img src="../content/user-profile.png" style="width: 150px;" alt="별">
+                        <img src="../content/12_user-profile.png" style="width: 150px;" alt="별">
                         <div class="camera-icon">
-                            <img src="../content/프로필 변경.png" alt="별">
+                            <a href="12_Mogle_signup_popup.html">
+                                <img src="../content/12_프로필 변경.png" alt="별">
+                            </a>
                         </div>
                     </div>
                     <div class="nickname-input">
@@ -290,7 +297,7 @@
                 </div>
 
                 <div style="display: flex; justify-content: center;">
-                    <button class="btn-gradient cloud" style="margin-top: 15px; width: 466px; height: 70px; font-size: var(--font-small);">Sign Up</button>
+                    <button class="btn-gradient cloud" style="margin-top: 15px; width: 466px; height: 70px; font-size: var(--font-small);"><a href="12_Mogle_home.html">Sign Up</a></button>
                 </div>
 
             </div>
