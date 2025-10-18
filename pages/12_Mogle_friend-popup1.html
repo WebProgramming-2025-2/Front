@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>친구 목록-Mogle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
     <style>
 
@@ -147,13 +148,13 @@
         .options-popup {
         /* 평소에는 숨겨둡니다. */
             display: flex;
-            z-index: 10; 
+            z-index: 100; 
         
-            position: absolute;
+            position: relative;
             width: 330px;
             height: 118px;
-            top: 300px;
-            left: 800px;
+            top: 70px;
+            left: 450px;
 
             border-top-left-radius: 40px;
             border-bottom-right-radius: 40px;
@@ -188,88 +189,6 @@
             left: 118px;
             font-size: var(--font-small);
             color: var(--warning);
-        }
-
-    /* ==================== 친구 추가 버튼 클릭시 생성되는 창 ==================== */
-
-        .option-friend-add
-        {
-            /* 평소에는 숨겨둡니다. */
-            display: none;
-            z-index: 11;
-            position: absolute;
-
-            width: 565px;
-            height: 217px;
-            top: 200px;
-            left: 400px;
-            border-top-left-radius: 40px;
-            border-bottom-right-radius: 40px;
-            border-bottom-left-radius: 40px;
-            box-shadow: var(--box-shadow);
-            background-color: white;
-            padding: 10px;
-            box-sizing: border-box;
-
-            flex-direction: column;
-            justify-content: center;
-            gap: 5px;
-        }
-
-        .friend-add{
-            width: 131;
-            height: 47;
-            top: 20px;
-            left: 26px;
-            position: absolute;
-            display: flex;
-            font-size: var(--font-medium);
-        }
-
-        .friend-email{
-            width: 387px;
-            height: 70px;
-            top: 86px;
-            left: 26px;
-            border-radius: 30px;
-            position: absolute;
-            display: flex;
-        }
-
-        .search-box-container.friend-add {
-            position: absolute;
-            width: 500px;
-        }
-
-        .friend-add-button{
-            width: 101px;
-            height: 70px;
-            border-radius: 30px;
-            top: 86px;
-            left: 431px;
-            border-radius: 40px;
-            position: absolute;
-            display: flex;
-            box-shadow: var(--box-shadow);
-            border: none;
-            cursor: pointer;
-            font-family: var(--font-main);
-            font-size: var(--font-very-small);
-            transition: background 0.3s ease;
-            background: var(--gradient-soda);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .friend-add-warning{
-            width: 264px;
-            height: 27px;
-            top: 175px;
-            left: 40px;
-            position: absolute;
-            font-size: var(--font-very-small);
-            color: var(--warning);
-            display: flex;
         }
 
         body {
@@ -328,7 +247,11 @@
                             </span>
                         </div>
                     </div>
-                    <button class="more-options-btn"><a href="friend.html">⋮</button>
+                    <a href="12_Mogle_friend.html" class="more-options-btn">⋮</a>
+                    <div class="options-popup">
+                        <a herf class="friend-bs-add">함께할 책장 추가</a>
+                        <a href class="friend-del">친구 삭제</a>
+                    </div>
                 </li>
 
                 <li class="friend-item">
@@ -346,7 +269,11 @@
                             </span>
                         </div>
                     </div>
-                    <button class="more-options-btn"><a href="friend.html">⋮</button>
+                    <a href="12_Mogle_friend.html" class="more-options-btn">⋮</a>
+                    <div class="options-popup">
+                        <a herf class="friend-bs-add">함께할 책장 추가</a>
+                        <a href class="friend-del">친구 삭제</a>
+                    </div>
                 </li>
 
                 <li class="friend-item">
@@ -365,25 +292,15 @@
                             </span>
                         </div>
                     </div>
-                    <button class="more-options-btn"><a href="friend.html">⋮</button>
+                    <a href="12_Mogle_friend.html" class="more-options-btn">⋮</a>
+                    <div class="options-popup">
+                        <a herf class="friend-bs-add">함께할 책장 추가</a>
+                        <a href class="friend-del">친구 삭제</a>
+                    </div>
                 </li>
             </ul>
-            <div class="options-popup">
-                <a herf class="friend-bs-add">함께할 책장 추가</a>
-                <a href class="friend-del">친구 삭제</a>
-            </div>
         </div>
-    </div>
-    <div class="option-friend-add">
-        <a herf class="friend-add">친구 추가</a>
-        <div class="friend-email">
-            <input type="text" placeholder="친구의 이메일을 입력하세요" class="input-basic search-input">
-        </div>
-        <button class="friend-add-button">추가</button>
-        <div class="friend-add-warning">이메일 형식이 일치하지 않습니다.</div>
     </div>
     </main>
 </body>
-
 </html>
-
