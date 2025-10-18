@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>시작 화면-Mogle</title>
-    <link rel="stylesheet" href="../css/12_Mogle_style.css">
+    <link rel="stylesheet" href="./css/12_Mogle_style.css">
     <style>
         html, body {
             height: 100%;
@@ -12,23 +12,56 @@
             padding: 0;
         }
 
-        .background-decorations img {
-            position: absolute;
+        .background-decorations {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
         }
 
-        .background-decorations img:nth-child(1) {
-            top: 0%;
-            left: 25%;
-            width: 700px;
+        .bg-star {
+            position: absolute;
+            width: 70%; 
+            height: 70%;
+            
+            left: 25%; 
+            top: 0%; 
+            transform: rotate(1deg);
+            opacity: 1; 
+            background-image: url("./content/12_시작화면배경별.png"); 
+            background-repeat: no-repeat; 
+            background-size: contain;
         }
-        .background-decorations img:nth-child(2) {
-            top: 10%;
-            left: 0%;
+
+        .bg-clover {
+            position: absolute;
+            width: 80%; 
+            height: 80%;
+            
+            left: 0%; 
+            top: 20%; 
+            
+            opacity: 1; 
+            background-image: url("./content/12_시작화면배경클로버.png");
+            background-repeat: no-repeat;
+            background-size: contain;
         }
-        .background-decorations img:nth-child(3) {
-            top: 38%;
-            left: 30%;
-            width: 650px;
+
+        .bg-sparkle {
+            position: absolute;
+            width: 60%; 
+            height: 60%;
+            
+            left: 31%; 
+            top: 40%; 
+            
+            opacity: 1;
+            background-image: url("./content/12_시작화면배경반짝별.png");
+            background-repeat: no-repeat;
+            background-size: contain;
         }
 
         .layout {
@@ -127,11 +160,9 @@
 </head>
 <body>
     <div class="background-decorations">
-        <div>
-            <img src="./content/12_시작화면배경별.png">
-            <img src="./content/12_시작화면배경클로버.png">
-            <img src="./content/12_시작화면배경반짝별.png">
-        </div>
+        <div class="bg-star"></div>
+        <div class="bg-clover"></div>
+        <div class="bg-sparkle"></div>
     </div>
 
     <div class="layout">
