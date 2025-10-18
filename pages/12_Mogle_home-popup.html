@@ -17,7 +17,7 @@
             border-radius: 20px;
             background-color: #fff;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            
+            transform: translateY(-3px); 
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
@@ -179,6 +179,20 @@
             
         }
 
+
+    main.main-content-grid {
+        height: calc(100vh - 96px);
+        padding: 30px 78px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column; 
+        gap: 30px;
+    }
+    .bookshelves-container {
+         scrollbar-width: none;-ms-overflow-style: none;
+        overflow-y: auto; 
+    }
+    
     </style>
 </head>
 
@@ -213,7 +227,7 @@
                 <input type="text" placeholder="책장 검색" class="input-basic search-input">
             </div>
         </div>
-
+        <div class="bookshelves-container">
         <section class="favorite-bookshelves">
             <h2 class="section-title" style="margin-top:75px">즐겨찾기한 책장</h2>
             <div class="horizontal-scroll-section" data-scroll-id="1">
@@ -264,6 +278,7 @@
                 <button class="scroll-button next-button">&gt;</button>
             </div>
         </section>
+        </div>
     </main>
 
     <div id="addBookPopup" class="add-book-popup">

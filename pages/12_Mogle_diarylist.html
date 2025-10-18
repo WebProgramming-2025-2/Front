@@ -6,11 +6,7 @@
     <title>다이어리 목록-Mogle</title>
     <link rel="stylesheet" href="../css/style.css">
     <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
+
     
         .middle_menu {
             justify-content: flex-start;
@@ -159,6 +155,20 @@
         .bookshelf-row {
             padding-right: 50px;
         }
+        main.main-content-grid {
+            height: calc(100vh - 96px);
+            padding: 30px 78px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column; 
+            gap: 30px;
+            scrollbar-width: none;-ms-overflow-style: none;
+        }
+        .bookshelves-container {
+            scrollbar-width: none;-ms-overflow-style: none;
+            overflow-y: auto; 
+        }
+
     </style>
 </head>
 <body>
@@ -194,7 +204,8 @@
                 <input type="text" placeholder="다이어리 검색" class="input-basic search-input">
             </div>
         </div>
-    
+        
+        <div class=".bookshelves-container">
         <section class="diary-we-wrote">
             <h2 class="section-title text-medium-large">함께 작성한 다이어리</h2>
             <div class="horizontal-scroll-section">
@@ -286,6 +297,7 @@
                 <button class="scroll-button">›</button>
             </div>
         </section>
+        </div>
     </main>
 </body>
 </html>

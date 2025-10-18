@@ -146,7 +146,7 @@
 
         .options-popup {
         /* 평소에는 숨겨둡니다. */
-            display: none;
+            display: flex;
             z-index: 10; 
         
             position: absolute;
@@ -195,7 +195,7 @@
         .option-friend-add
         {
             /* 평소에는 숨겨둡니다. */
-            display: flex;
+            display: none;
             z-index: 11;
             position: absolute;
 
@@ -271,6 +271,11 @@
             color: var(--warning);
             display: flex;
         }
+
+        body {
+            overflow: hidden;
+            height: 100vh;
+        }
     </style>
 </head>
 <body>
@@ -323,7 +328,7 @@
                             </span>
                         </div>
                     </div>
-                    <button class="more-options-btn">⋮</button>
+                    <button class="more-options-btn"><a href="friend.html">⋮</button>
                 </li>
 
                 <li class="friend-item">
@@ -341,7 +346,7 @@
                             </span>
                         </div>
                     </div>
-                    <button class="more-options-btn">⋮</button>
+                    <button class="more-options-btn"><a href="friend.html">⋮</button>
                 </li>
 
                 <li class="friend-item">
@@ -360,7 +365,7 @@
                             </span>
                         </div>
                     </div>
-                    <button class="more-options-btn">⋮</button>
+                    <button class="more-options-btn"><a href="friend.html">⋮</button>
                 </li>
             </ul>
             <div class="options-popup">

@@ -253,7 +253,7 @@
             cursor: pointer;
             font-family: var(--font-main);
             font-size: var(--font-very-small);
-            transition: background 0.3s ease;
+            transition: var(--background) 0.3s ease;
             background: var(--gradient-soda);
             justify-content: center;
             align-items: center;
@@ -268,6 +268,11 @@
             font-size: var(--font-very-small);
             color: var(--warning);
             display: flex;
+        }
+
+        body {
+            overflow: hidden;
+            height: 100vh;
         }
     </style>
 </head>
@@ -297,7 +302,7 @@
 
     <main class="main-content-grid">
     <div class="search-area">
-        <button class="add-button btn-gradient soda">+</button> 
+        <button class="add-button btn-gradient soda"><a href="friend-popup2.html">+</button> 
         
         <div class="search-box-container">
             <input type="text" placeholder="친구 검색" class="input-basic search-input">
@@ -321,7 +326,7 @@
                             </span>
                         </div>
                     </div>
-                    <button class="more-options-btn">⋮</button>
+                    <button class="more-options-btn"><a href="friend-popup1.html">⋮</button>
                 </li>
 
                 <li class="friend-item">
@@ -339,7 +344,7 @@
                             </span>
                         </div>
                     </div>
-                    <button class="more-options-btn">⋮</button>
+                    <button class="more-options-btn"><a href="friend-popup1.html">⋮</button>
                 </li>
 
                 <li class="friend-item">
@@ -358,7 +363,7 @@
                             </span>
                         </div>
                     </div>
-                    <button class="more-options-btn">⋮</button>
+                    <button class="more-options-btn"><a href="friend-popup1.html">⋮</button>
                 </li>
             </ul>
             <div class="options-popup">
