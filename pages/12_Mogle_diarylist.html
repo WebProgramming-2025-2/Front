@@ -3,14 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>다이어리 목록 화면 - Mogle</title>
+    <title>다이어리 목록-Mogle</title>
     <link rel="stylesheet" href="../css/style.css">
     <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
+
     
         .middle_menu {
             justify-content: flex-start;
@@ -152,26 +148,27 @@
             overflow-x: hidden;
         }
 
-        .search-area {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            position: absolute;
-            top: 130px;
-            right: 78px;
-            z-index: 10;
-            max-width: calc(100vw - 156px);
-        }
-
         .main-content-grid {
-            overflow-x: hidden;
-            overflow-y: auto;
             padding-right: 60px;
         }
 
         .bookshelf-row {
             padding-right: 50px;
         }
+        main.main-content-grid {
+            height: calc(100vh - 96px);
+            padding: 30px 78px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column; 
+            gap: 30px;
+            scrollbar-width: none;-ms-overflow-style: none;
+        }
+        .bookshelves-container {
+            scrollbar-width: none;-ms-overflow-style: none;
+            overflow-y: auto; 
+        }
+
     </style>
 </head>
 <body>
@@ -207,7 +204,8 @@
                 <input type="text" placeholder="다이어리 검색" class="input-basic search-input">
             </div>
         </div>
-    
+        
+        <div class=".bookshelves-container">
         <section class="diary-we-wrote">
             <h2 class="section-title text-medium-large">함께 작성한 다이어리</h2>
             <div class="horizontal-scroll-section">
@@ -299,6 +297,7 @@
                 <button class="scroll-button">›</button>
             </div>
         </section>
+        </div>
     </main>
 </body>
 </html>

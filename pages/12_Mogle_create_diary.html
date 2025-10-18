@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mogle - 다이어리 테마 선택</title>
+    <title>다이어리 테마 선택-Mogle</title>
     <link rel="stylesheet" href="../css/style.css">
     <style>
         * {
@@ -29,6 +29,7 @@
             padding-left: 80px;
             gap: 8px;
         }
+       
         .middle_menu input {
             font-family: var(--font-main);
             font-size: var(--font-medium);
@@ -36,14 +37,22 @@
             background: transparent;
             border: none;
             outline: none;
-            padding: 0;
-            line-height: 1;
+            padding: 4px 2px;      /* 아주 작은 padding */
+            line-height: 1.5;      /* 충분한 line-height */
             cursor: text;
             width: 425px;
+            min-height: 30px;      /* 최소 높이 확보 */
+            position: relative;
+            z-index: 10;
+            pointer-events: auto;
         }
 
         .middle_menu input::placeholder {
-            color: black;
+            color: var(--shadow-gray)
+        }
+
+        .title-with-star form {
+            width: 100%;
         }
 
         .star-icon {
@@ -54,18 +63,22 @@
 
         .container {
             max-width: 1280px;
-            max-height: 570px;
+            min-height: calc(100vh - 120px); 
+            height: auto; 
             display: grid;
             grid-template-columns: 1fr 1fr;
             padding: 30px 50px 0px 0px;
             margin-left: auto;
             margin-right: auto;
+            align-items: center;
         }
+
+
 
         .left-section {
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start; 
         }
 
         .notebook-card {
@@ -92,7 +105,7 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
             place-items: center;
-            margin-top: 30px;
+            
         }
 
         .theme-card {
@@ -125,8 +138,7 @@
         <!-- 나중에 css 머지 하면 수정 -->
         <div class="middle_menu">
             <div class="title-with-star">
-                <p><input type="text" placeholder="다이어리의 이름을 작성하세요."></p>
-                <img src="../content/별.png" class="star-icon">
+                <form action=""><input type="text" placeholder="다이어리의 이름을 작성하세요."></form>
             </div>
         </div>
         <div class="multi-profile">
